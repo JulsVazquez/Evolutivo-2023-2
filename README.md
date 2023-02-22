@@ -8,5 +8,5 @@ Teacher: MS in Science Oscar Hernández Constantino
 
 | **Full Name**  | **ID Number**  |
 |---|---|
-|  *García V. Diego* | 31  |
+|  *García V. Diego* | 416013719  |
 |  *Vázquez A. Julio* |  314334398 |
