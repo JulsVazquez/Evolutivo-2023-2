@@ -103,20 +103,53 @@ de *optimización por gradientes*.
 </center>
 <br>
 
-# Óptimización combinatoria
+# Optimización combinatoria
+
+Cómo primer ejemplo de problema de combinación optimataría, lo que 
+haremos será proponer el problema de *Gráfica bipartita*.
+
+El cuál describimos de la siguiente manera:
+
+**Llamamos *gráfica bipartita* o sólo *bigráfica* es un conjunto de 
+vertices de una gráfica descompuestos en dos conjuntos disjuntos, del
+modo que no hay dos vértices de una gráfica adyacente dentro del 
+mismo conjunto.**
+
+Podemos mostrar un ejemplo donde la *k-partición* de una grafica con
+*k=2*.
+
+![](./img/bigrafica.png)
 
 ## Codificación binaria
 
+Nuestra codificación para poder representar una gráfica será 
+sencilla, por lo cuál usaremos una matriz de adyacencias, esto en
+particular es excelente para nuestro problema, debido a que 
+justamente buscamos conjunstos disjuntos dentro de *G*.
+
+Por lo que la codificación será de la siguiente manera:
+
+[//]: <> (TODO: Codificación con ejemplo visual)
+
 ### Espacio de la búsqueda
+
+[//]: <> (TODO: Espacio de búqueda)
 
 ### Función objetivo
 
+[//]: <> (TODO: Función objetivo)
+
 ### Tamaño del espacio de búsqueda
+
+[//]: <> (TODO: Tamaño del espacio)
 
 ### Ejemplar concreto del problema
 
+[//]: <> (TODO: Ejemplar del problema)
+
 ### Ejemplo de solución
 
+[//]: <> (TODO: Ejemplo de solución)
 
 ## Vector de valores discretos
 
