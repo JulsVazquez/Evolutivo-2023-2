@@ -125,31 +125,94 @@ Podemos mostrar un ejemplo donde la *k-partición* de una grafica con
 Nuestra codificación para poder representar una gráfica será 
 sencilla, por lo cuál usaremos una matriz de adyacencias, esto en
 particular es excelente para nuestro problema, debido a que 
-justamente buscamos conjunstos disjuntos dentro de *G*.
+justamente buscamos conjuntos disjuntos dentro de *G*.
 
 Por lo que la codificación será de la siguiente manera:
 
-[//]: <> (TODO: Codificación con ejemplo visual)
+Sea *G* una gráfica. Diremos que por cada par de vértices, estarán
+conectados tal que cada par de vértices $$(a,b) \in G$$ si su 
+evaluación en la matriz de adyacencias es 1.
+
+Es decir:
+
+$$(a,b) \in G$$ estarán conectados syss $$(a,b)=1$$.
+
+También agregamos la restricción de que un vértice no puede estar
+conectado consigo mismo, en otras palabras:
+
+$$(a,a)=0$$
 
 ### Espacio de la búsqueda
 
-[//]: <> (TODO: Espacio de búqueda)
+Nuestro espacio de búsqueda lo vamos a definir como los vértices 
+pares e impares de nuestra grafica, donde cada uno representará
+las distintas particiones de $$G$$.
 
 ### Función objetivo
 
-[//]: <> (TODO: Función objetivo)
+Definiremos nuestra función objetivo como la suma de las aristas con
+elementos de cada clase.
+
+Es decir, tendremos dos tipos de clase.
+
+La clase del $$0$$ y la clase del $$1$$.
+
+Ya que ellas definirán el vector de $$n$$ localidades con $$n$$ 
+siendo el número de nodos.
+
+Donde si $$f(E) = 0$$, tendremos una gráfica que se puede 
+bi-particionar. 
 
 ### Tamaño del espacio de búsqueda
 
-[//]: <> (TODO: Tamaño del espacio)
+El tamaño del espacio de búsqueda será toda la gráfica $$G$$, pero
+siempre teniendo un vértice como inicial y el cuál nunca cambiará.
 
 ### Ejemplar concreto del problema
 
-[//]: <> (TODO: Ejemplar del problema)
+Sea *G*, la siguiente gráfica con el vértice $$v_1$$ marcado como 
+fijo:
+
+![](img/graphExample.png)
 
 ### Ejemplo de solución
 
-[//]: <> (TODO: Ejemplo de solución)
+Elegiremos arbitraríamente dos conjuntos de nuestra gráfica y 
+obtendremos dos vectores que nos indicarán las posiciones en donde se
+encuentran dichos elemento.
+
+Si tomo como mi primer conjunto $$G_1$$ marcado con verde y mi 
+segundo conjunto a $$G_2$$ marcado con amarillo obtendría la 
+siguiente gráfica:
+
+![](img/biPartitionGraph.png)
+
+En la cuaĺ tengo los vértices etiquetados de la siguiente manera:
+
+$$[00000,00001,00100],[00010, 00011]$$
+
+Donde el primer véctor representa a los vértices: $$[0,1,4]$$ y el
+segundo véctor representa a los vértices $$[2,3]$$
+
+Teniendo esto, lo siguiente es hacer la función objetivo, en  donde 
+nos vamos a fijar a que clase pertenecen, si a la del 0 o a la del 1.
+
+Verificaremos cada uno de los vértices de cada subgráfica y si tienen
+vértices inconexos entre ellos pertenecerán a la clase de 
+equivalencia del 0, si tienen vértices conexos pertenecerán a la 
+clase de equivalencia del 1.
+
+Por lo que nuestrá gráfica de ejemplo tanto los vértices:
+
+$$v_1,v_2,v_5 \in G_1$$ y
+
+$$v_3,v_4 \in G_2$$ no tienen vértices conexos entre su gráfica.
+
+$$\therefore$$ la gráfica es bipartita, ya que la función objetivo
+
+se evalua a 0.
+
+$$f(E) = 0 + 0 = 0$$
 
 ## Vector de valores discretos
 
