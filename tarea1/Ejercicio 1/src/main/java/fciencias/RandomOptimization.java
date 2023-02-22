@@ -1,19 +1,12 @@
 package fciencias;
 
 import java.util.Date;
+import java.util.Map;
 import java.util.Random;
 
 import fciencias.tarea1.binaryRepresentation.BinaryState;
-import fciencias.tarea1.evalFunctions.AckleyFunction;
-import fciencias.tarea1.evalFunctions.EvalFunction;
-import fciencias.tarea1.evalFunctions.GriewankFunction;
-import fciencias.tarea1.evalFunctions.SphereFunction;
-import fciencias.tarea1.evalFunctions.ThenthPowerFunction;
+import fciencias.tarea1.evalFunctions.*;
 
-/**
- * Hello world!
- *
- */
 public class RandomOptimization implements Runnable
 {
 
@@ -21,20 +14,33 @@ public class RandomOptimization implements Runnable
 
     private double[] interval;
 
-    private int iterations;
+    private long iterations;
 
     private int representationalBits;
 
     private int dimension;
 
+    private BinaryState globalBinaryState;
+
+    private Map<String,Object> globalParams;
+
     
 
-    public RandomOptimization(EvalFunction evalFunction, double[] interval, int iterations, int representationalBits,int dimension) {
+    public RandomOptimization(EvalFunction evalFunction, double[] interval, long iterations, int representationalBits,int dimension) {
         this.evalFunction = evalFunction;
         this.interval = interval;
         this.iterations = iterations;
         this.representationalBits = representationalBits;
         this.dimension = dimension;
+    }
+
+    public RandomOptimization(EvalFunction evalFunction, double[] interval, long iterations, int representationalBits,int dimension, BinaryState globalBinaryState) {
+        this.evalFunction = evalFunction;
+        this.interval = interval;
+        this.iterations = iterations;
+        this.representationalBits = representationalBits;
+        this.dimension = dimension;
+        this.globalBinaryState = globalBinaryState;
     }
 
     public EvalFunction getEvalFunction() {
@@ -53,11 +59,11 @@ public class RandomOptimization implements Runnable
         this.interval = interval;
     }
 
-    public int getIterations() {
+    public long getIterations() {
         return iterations;
     }
 
-    public void setIterations(int iterations) {
+    public void setIterations(long iterations) {
         this.iterations = iterations;
     }
 
@@ -67,6 +73,31 @@ public class RandomOptimization implements Runnable
 
     public void setRepresentationalBits(int representationalBits) {
         this.representationalBits = representationalBits;
+    }
+
+    
+    public BinaryState getGlobalBinaryState() {
+        return globalBinaryState;
+    }
+
+    public void setGlobalBinaryState(BinaryState globalBinaryState) {
+        this.globalBinaryState = globalBinaryState;
+    }
+
+    public int getDimension() {
+        return dimension;
+    }
+
+    public void setDimension(int dimension) {
+        this.dimension = dimension;
+    }
+
+    public Map<String, Object> getGlobalParams() {
+        return globalParams;
+    }
+
+    public void setGlobalParams(Map<String, Object> globalParams) {
+        this.globalParams = globalParams;
     }
 
     public double[] getRandomVector(double[] interval,int n)
@@ -83,43 +114,52 @@ public class RandomOptimization implements Runnable
         return randVector;
     }
 
-    public BinaryState getRandomState(double[] interval, int n, int bits)
+    public BinaryState getRandomState(double[] interval, int dimension, int bits)
     {
-        return new BinaryState(getRandomVector(interval, n),bits, interval);
+        return new BinaryState(getRandomVector(interval, dimension),bits, interval);
     }
 
     public BinaryState optimize()
     {
-        BinaryState optimunBinaryState = getRandomState(interval,dimension,representationalBits);
-        double minValue = evalFunction.evalSoution(optimunBinaryState.getRealValue());
-
         for(int i = 0; i < iterations; i ++)
         {
             BinaryState binaryState = getRandomState(interval,dimension,representationalBits);
             double currentStateValue = evalFunction.evalSoution(binaryState.getRealValue()); 
+            double minValue = evalFunction.evalSoution(globalBinaryState.getRealValue());
             if(currentStateValue < minValue)
             {
-                optimunBinaryState = binaryState;
+                globalBinaryState = binaryState;
                 minValue = currentStateValue;
                 System.out.println(minValue);
             }
 
         }
 
-        return optimunBinaryState;
-    }
-
-    public static void main( String[] args )
-    {
-        RandomOptimization randomOptimization = new RandomOptimization(new AckleyFunction(), new double[]{-5.12,5.12}, 500000000, 90,3);
-        BinaryState binaryState = randomOptimization.optimize();
-        System.out.println(binaryState + "\n" + new SphereFunction().evalSoution(binaryState.getRealValue()));
+        return globalBinaryState;
     }
 
     @Override
     public void run() {
         
-        BinaryState binaryState = optimize();
+        optimize();
+        System.out.println(globalBinaryState);
+    }
+
+    public static void main( String[] args )
+    {
+        double[] interval = new double[]{-5.12,5.12};
+        int dimension = 3;
+        int representationalBits = 90;
+        long iterations = 100000000;
+        
+        
+        RandomOptimization randomOptimization = new RandomOptimization(new SphereFunction(), interval, iterations, representationalBits,dimension);
+        BinaryState optimuBinaryState = randomOptimization.getRandomState(interval, dimension, representationalBits);
+        randomOptimization.setGlobalBinaryState(optimuBinaryState);
+
+        for(int k = 0; k < 12; k++)
+            new Thread(randomOptimization).start();
+  
     }
 
 }
