@@ -189,7 +189,7 @@ siguiente gráfica:
 
 En la cuaĺ tengo los vértices etiquetados de la siguiente manera:
 
-$$[00000,00001,00100],[00010, 00011]$$
+$$[00000,00001,00100],[00010, 00011]$$m
 
 Donde el primer véctor representa a los vértices: $$[0,1,4]$$ y el
 segundo véctor representa a los vértices $$[2,3]$$
@@ -212,7 +212,7 @@ $$\therefore$$ la gráfica es bipartita, ya que la función objetivo
 
 se evalua a 0.
 
-$$f(E) = 0 + 0 = 0$$
+$f(E) = 0 + 0 = 0$
 
 ## Vector de valores discretos
 
