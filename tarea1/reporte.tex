@@ -1,0 +1,276 @@
+\documentclass{article}
+
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amssymb}
+
+\begin{document}
+\begin{titlepage}
+{\includegraphics[width=1\textwidth]{./img/logoFC.png}\par}
+\vspace{1cm}
+\centering
+{\bfseries\huge Universidad Nacional Autónoma de México \par}
+\vspace{1cm}
+{\scshape\huge Facultad de Ciencias \par}
+\vspace{2cm}
+{\scshape\Huge Reporte \par}
+\vspace{2cm}
+{\itshape\LARGE Computo Evólutivo \par}
+\vfill
+{\large Autores: \par}
+{\large Diego García V. \par}
+{\large Julio Vázquez A. \par}
+\vfill
+{\Large \today \par}
+\end{titlepage}
+
+\section*{Optimización continúa}
+
+\subsection*{Descripción y características de las funciones}
+
+\subsubsection*{\href{https://www.sfu.ca/~ssurjano/spheref.html}{Sphere}}
+Nuestra función contiene un único óptimo global, ya que es una función \textit{unimodal}.
+Se ha leído\href{https://xloptimizer.com/projects/toy-problems/sphere-function-pure-excel#:~:text=The\%20sphere\%20function\%20is\%20one,proposed\%20modification\%20of\%20an\%20algorithm.)}{[1]} \textit{que nos ayuda a poder probar el rendimiento de un algoritmo o una propuesta de un algoritmo
+modificado.}
+
+También sabemos que la función es convexa, ya que si trazamos un segmento a través de ella, ningún punto por debajo del segmento podrá
+sobre pasarlo.
+
+Consideramos que al tener un \textbf{único óptimo global}, es muy difícil de optimizar, ya que aunque aumentemos de dimensión nuestra función,
+siempre tendrá un óptimo único.
+
+La imagen de la función asemeja a una sábana tomada en cada punta (extremo), por una persona.
+
+\subsubsection*{\href{https://www.sfu.ca/~ssurjano/ackley.html}{Ackley}}
+Esta función fue presentada en las sesiones con el profesor y la ayudante. Podemos notar que tiene muchísimo mínimos locales.
+
+También encontramos que la función es no convexa\href{https://en.wikipedia.org/wiki/Ackley_function}{[2]}, por lo que nos difículta poder encontrar
+los mínimos locales dada una superficie de trabajo.
+
+Lo más curioso de está función es que su \textbf{único óptimo global} se encuentra en el punto $f(0,0)=0$.
+
+Creemos que aumentar o disminuir la dimensión de la función mantiene su alta dificultad, ya que siempre tendremos múltiples mínimos locales,
+incluso si trabajaramos en un \textit{espacio bidimensional} tendríamos complicaciones con encontrar el mínimo local.
+
+\subsubsection*{\href{https://www.sfu.ca/~ssurjano/griewank.html}{Griewank}}
+
+Esta función también fue presentada en la ayudantía con Malinali, pudimos observar que también tiene varios mínimos locales, pero
+estos son generalizados y se distribuyen de manera regular.
+
+La dimensión nos ayuda a alterar su dificultad, ya que entre menor sea dicha dimensión, mucho más fácil es de analizar la función y de
+esta manera podemos encontrar la distribución de sus mínimos.
+
+Su \textbf{óptimo global} depende de su distribución, pero al ser regulares siempre se mantiene con múltiples óptimos a lo largo de la función.
+
+\subsubsection*{Tenth Power}
+Esta función es una modificación presentada por la \textit{función Sphere}, su diferencia es que nuestra variable está elevada a la potencia 10.
+
+Esto quiere decir que mantendrá las mismas propiedades que la \textit{función Sphere}.
+
+\subsubsection*{\href{https://www.sfu.ca/~ssurjano/rastr.html}{Rastrigin}}
+La función es presentada con muchísimos minimos locales, por lo que es altamente modal, pero algo que la caracteriza es que sus localidades
+mínimas son distribuidas de manera regular.
+
+La función será dificil de optimizar si buscamos justamente estos mínimos, pero altamente fácil si queremos encontrar los máximos.
+
+La dimensión nos ayuda a alterar su dificultad si buscamos máximos, pero se nos dificultará si buscamos los mínimos por sus propiedades.
+
+Al igual que la función \textbf{Ackley} su óptimo local se encuentra en el cuadrante 0.
+
+\subsubsection*{\href{https://www.sfu.ca/~ssurjano/rosen.html}{Rosenbrock}}
+La función de Rosenbrock es unimodal, por lo que el mínimo global residirá muy cerca del valle parábolico.
+
+Es muy fácil encontrar este el mínimo local en esta función y hemos encontrado que es muy popular para las pruebas
+de \textit{optimización por gradientes}.
+
+\subsection*{Esquema de codificación}
+
+\subsection*{Tamaño de búsqueda}
+
+\subsection*{Búsqueda aleatoria}
+
+\subsection*{Tabla}
+
+\begin{table}[h]
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Función            & Dimensión & Mejor valor $f(x)$ & Valor promedio $f(x)$ & Peor valor $f(x)$ \\ \hline
+\textit{Sphere}           &           &                    &                       &                   \\ \hline
+\textit{Sphere}           &           &                    &                       &                   \\ \hline
+\textit{Sphere}           &           &                    &                       &                   \\ \hline
+\textit{Ackley}           &           &                    &                       &                   \\ \hline
+\textit{Ackley}           &           &                    &                       &                   \\ \hline
+\textit{Ackley}           &           &                    &                       &                   \\ \hline
+\textit{Griewank}           &           &                    &                       &                   \\ \hline
+\textit{Griewank}           &           &                    &                       &                   \\ \hline
+\textit{TenthPowerFunction} &           &                    &                       &                   \\ \hline
+\textit{TenthPowerFunction} &           &                    &                       &                   \\ \hline
+\textit{TenthPowerFunction} &           &                    &                       &                   \\ \hline
+\textit{Rastrigin}          &           &                    &                       &                   \\ \hline
+\textit{Rastrigin}          &           &                    &                       &                   \\ \hline
+\textit{Rastrigin}          &           &                    &                       &                   \\ \hline
+\textit{Rosenbrock}         &           &                    &                       &                   \\ \hline
+\textit{Rosenbrock}         &           &                    &                       &                   \\ \hline
+\textit{Rosenbrock}         &           &                    &                       &                   \\ \hline
+\end{tabular}
+% TODO: Poner el número de iteraciones que realizamos.
+}
+\caption{Ejecución de la búsqueda aleatoria con \textit{número} de iteraciones}
+
+\end{table}
+
+\newpage
+\section*{Optimización combinatoria}
+
+\subsection*{Codificación binaria}
+Cómo primer ejemplo de problema de combinación optimataría, lo que 
+haremos será proponer el problema de \textit{Gráfica bipartita}.
+
+El cuál describimos de la siguiente manera:
+
+\textit{Llamamos \textbf{gráfica bipartita} o sólo \textbf{bigráfica} es un conjunto de vertices de una gráfica descompuestos en dos conjuntos disjuntos, del modo que no hay dos vértices de una gráfica adyacente dentro del mismo conjunto.}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.25]{./img/bigrafica}
+\caption{Ejemplo de la \textit{k-partición} de gráficas con \textit{k=2}}
+\end{center}
+\end{figure}
+
+Nuestra codificación para poder representar una gráfica será 
+sencilla, por lo cuál usaremos una matriz de adyacencias, esto en
+particular es excelente para nuestro problema, debido a que 
+justamente buscamos conjuntos disjuntos dentro de \textit{G}.
+
+Por lo que la codificación será de la siguiente manera:
+
+Sea \textit{G} una gráfica. Diremos que por cada par de vértices, estarán
+conectados tal que cada par de vértices $(a,b) \in G$ si su 
+evaluación en la matriz de adyacencias es 1.
+
+Es decir:
+
+$(a,b) \in G$ estarán conectados syss $(a,b)=1$.
+
+También agregamos la restricción de que un vértice no puede estar
+conectado consigo mismo, en otras palabras:
+
+$(a,a)=0$
+
+\subsubsection*{Espacio de la búsqueda}
+
+Nuestro espacio de búsqueda lo vamos a definir como los vértices 
+pares e impares de nuestra grafica, donde cada uno representará
+las distintas particiones de $G$.
+
+\subsubsection*{Función objetivo}
+Definiremos nuestra función objetivo como la suma de las aristas con
+elementos de cada clase.
+
+Es decir, tendremos dos tipos de clase.
+
+La clase del $0$ y la clase del $1$.
+
+Ya que ellas definirán el vector de $n$ localidades con $n$ 
+siendo el número de nodos.
+
+Donde si $f(E) = 0$, tendremos una gráfica que se puede 
+bi-particionar.
+
+\subsubsection*{Tamaño del espacio de búsqueda}
+El tamaño del espacio de búsqueda será toda la gráfica $G$, pero
+siempre teniendo un vértice como inicial y el cuál nunca cambiará.
+\subsubsection*{Ejemplar concreto del problema}
+Sea \textit{G}, la siguiente gráfica con el vértice $v_1$ marcado como 
+fijo:
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.25]{./img/graphExample}
+\end{center}
+\end{figure}
+\subsubsection*{Ejemplo de solución}
+Elegiremos arbitraríamente dos conjuntos de nuestra gráfica y 
+obtendremos dos vectores que nos indicarán las posiciones en donde se
+encuentran dichos elemento.
+
+Si tomo como mi primer conjunto $G_1$ marcado con verde y mi 
+segundo conjunto a $G_2$ marcado con amarillo obtendría la 
+siguiente gráfica:
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.25]{./img/biPartitionGraph}
+\end{center}
+\end{figure}
+En la cuaĺ tengo los vértices etiquetados de la siguiente manera:
+
+$[00000,00001,00100],[00010, 00011]$
+
+Donde el primer véctor representa a los vértices: $[0,1,4]$ y el
+segundo véctor representa a los vértices $[2,3]$
+
+Teniendo esto, lo siguiente es hacer la función objetivo, en  donde 
+nos vamos a fijar a que clase pertenecen, si a la del 0 o a la del 1.
+
+Verificaremos cada uno de los vértices de cada subgráfica y si tienen
+vértices inconexos entre ellos pertenecerán a la clase de 
+equivalencia del 0, si tienen vértices conexos pertenecerán a la 
+clase de equivalencia del 1.
+
+Por lo que nuestrá gráfica de ejemplo tanto los vértices:
+
+$v_1,v_2,v_5 \in G_1$ y
+
+$v_3,v_4 \in G_2$
+
+no tienen vértices conexos entre su respectiva partición de gráfica.
+
+$\therefore$ La gráfica es bipartita, ya que la función objetivo se evalua a 0.
+
+$f(E) = 0 + 0 = 0$
+
+\newpage
+\subsection*{Vector de valores discretos}
+
+\subsubsection*{Espacio de la búsqueda}
+
+\subsubsection*{Función objetivo}
+
+\subsubsection*{Tamaño del espacio de búsqueda}
+
+\subsubsection*{Ejemplar concreto del problema}
+
+\subsubsection*{Ejemplo de solución}
+
+\newpage
+\subsection*{Permutaciones}
+
+\subsubsection*{Espacio de la búsqueda}
+
+\subsubsection*{Función objetivo}
+
+\subsubsection*{Tamaño del espacio de búsqueda}
+
+\subsubsection*{Ejemplar concreto del problema}
+
+\subsubsection*{Ejemplo de solución}
+
+\newpage
+%TODO: Agregar las referencias dónde nos basamos.
+% Podemos usar está página: https://www.grafiati.com/es/
+\section*{Referencias}
+\begin{enumerate}
+	\item Korte, B., \& Vygen, J. (2006). Combinatorial Optimization: Theory and Algorithms. Springer London, Limited.
+	\item Cook, W. J., Cunningham, W. H., Pulleyblank, W. R., \& Schrijver, A. (1997). Combinatorial Optimization. John Wiley \& Sons, Inc. \url{https://doi.org/10.1002/9781118033142}
+	\item Ackley Function. (s.f.). Simon Fraser University. \url{https://www.sfu.ca/~ssurjano/ackley.html}
+	\item Sphere Function. (s.f.). Simon Fraser University. \url{https://www.sfu.ca/~ssurjano/spheref.html}
+	\item Griewank Function. (s.f.). Simon Fraser University. \url{https://www.sfu.ca/~ssurjano/griewank.html}
+	\item xloptimizer.com - Sphere function (pure Excel). (s.f.). xloptimizer.com - Optimization algorithms for Microsoft Excel. \url{https://xloptimizer.com/projects/toy-problems/sphere-function-pure-excel#:~:text=The%20sphere%20function%20is%20one,proposed%20modification%20of%20an%20algorithm.}
+	\item Contributors to Wikimedia projects. (2017, 3 de diciembre). Ackley function - Wikipedia. Wikipedia, the free encyclopedia. \url{https://en.wikipedia.org/wiki/Ackley_function}
+	\item Rastrigin Function. (s.f.). Simon Fraser University. \url{https://www.sfu.ca/~ssurjano/rastr.html}
+	\item Rosenbrock Function. (s.f.). Simon Fraser University. \url{https://www.sfu.ca/~ssurjano/rosen.html}	
+\end{enumerate}
+
+\end{document}
