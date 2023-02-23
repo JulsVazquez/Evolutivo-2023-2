@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.1.10)  22 FEB 2023 18:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.1.10)  23 FEB 2023 17:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -313,51 +313,56 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.74 
-      [1] [2]
-<./img/bigrafica.png, id=46, 1541.76pt x 490.83376pt>
+      [1]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 100
+.
+ (/usr/share/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+) [2]
+<./img/bigrafica.png, id=47, 1541.76pt x 490.83376pt>
 File: ./img/bigrafica.png Graphic file (type png)
 <use ./img/bigrafica.png>
-Package pdftex.def Info: ./img/bigrafica.png  used on input line 137.
+Package pdftex.def Info: ./img/bigrafica.png  used on input line 119.
 (pdftex.def)             Requested size: 385.43906pt x 122.70813pt.
 
-Overfull \hbox (40.43906pt too wide) in paragraph at lines 137--138
+Overfull \hbox (40.43906pt too wide) in paragraph at lines 119--120
  [] 
  []
 
 [3 <./img/bigrafica.png>]
-<./img/graphExample.png, id=57, 645.41125pt x 557.08125pt>
+<./img/graphExample.png, id=58, 645.41125pt x 557.08125pt>
 File: ./img/graphExample.png Graphic file (type png)
 <use ./img/graphExample.png>
-Package pdftex.def Info: ./img/graphExample.png  used on input line 190.
+Package pdftex.def Info: ./img/graphExample.png  used on input line 172.
 (pdftex.def)             Requested size: 161.35242pt x 139.26997pt.
-<./img/biPartitionGraph.png, id=58, 636.3775pt x 556.0775pt>
+<./img/biPartitionGraph.png, id=59, 636.3775pt x 556.0775pt>
 File: ./img/biPartitionGraph.png Graphic file (type png)
 <use ./img/biPartitionGraph.png>
-Package pdftex.def Info: ./img/biPartitionGraph.png  used on input line 204.
+Package pdftex.def Info: ./img/biPartitionGraph.png  used on input line 186.
 (pdftex.def)             Requested size: 159.09398pt x 139.01903pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[4 <./img/graphExample.png>] [5 <./img/biPartitionGraph.png>] [6] [7]
-Overfull \hbox (2.24724pt too wide) in paragraph at lines 270--271
+[4 <./img/graphExample.png>] [5 <./img/biPartitionGraph.png>] [6]
+Overfull \hbox (2.24724pt too wide) in paragraph at lines 237--238
 \OT1/cmtt/m/n/10 com / projects / toy-[]problems / sphere-[]function-[]pure-[]e
 xcel# : [] : text =
  []
 
 
-Overfull \hbox (16.4971pt too wide) in paragraph at lines 270--271
+Overfull \hbox (16.4971pt too wide) in paragraph at lines 237--238
 \OT1/cmtt/m/n/10 The % 20sphere % 20function % 20is % 20one ,[] proposed % 20mo
 dification % 20of %
  []
 
 
-Overfull \hbox (13.8884pt too wide) in paragraph at lines 271--272
+Overfull \hbox (13.8884pt too wide) in paragraph at lines 238--239
 \OT1/cmr/m/n/10 ction - Wi-ki-pe-dia. Wi-ki-pe-dia, the free ency-clo-pe-dia. [
 ]$\OT1/cmtt/m/n/10 https : / / en . wikipedia .
  []
 
-[8] (build/reporte.aux
+[7] (build/reporte.aux
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 )
@@ -365,28 +370,30 @@ Package rerunfilecheck Info: File `reporte.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 10028 strings out of 478238
- 155992 string characters out of 5850456
- 468804 words of memory out of 5000000
- 28110 multiletter control sequences out of 15000+600000
- 474906 words of font info for 49 fonts, out of 8000000 for 9000
+ 10029 strings out of 478238
+ 156097 string characters out of 5850456
+ 460804 words of memory out of 5000000
+ 28119 multiletter control sequences out of 15000+600000
+ 475614 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,10n,63p,336b,366s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,8n,63p,546b,366s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12
-.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/sha
-re/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on build/reporte.pdf (9 pages, 414258 bytes).
+cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><
+/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.
+pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/f
+onts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texmf-dist/fonts/type1/
+public/amsfonts/symbols/msam10.pfb>
+Output written on build/reporte.pdf (8 pages, 423861 bytes).
 PDF statistics:
- 196 PDF objects out of 1000 (max. 8388607)
- 152 compressed objects within 2 object streams
- 52 named destinations out of 1000 (max. 500000)
+ 188 PDF objects out of 1000 (max. 8388607)
+ 141 compressed objects within 2 object streams
+ 38 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

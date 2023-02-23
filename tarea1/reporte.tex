@@ -14,7 +14,7 @@
 \vspace{1cm}
 {\scshape\huge Facultad de Ciencias \par}
 \vspace{2cm}
-{\scshape\Huge Reporte \par}
+{\scshape\Huge Tarea 1 - Reporte\par}
 \vspace{2cm}
 {\itshape\LARGE Computo Evólutivo \par}
 \vfill
@@ -85,41 +85,23 @@ Es muy fácil encontrar este el mínimo local en esta función y hemos encontrad
 de \textit{optimización por gradientes}.
 
 \subsection*{Esquema de codificación}
+El intervalo de evaluación se mapea entre $0 \dots 2^n$.
+
+Como sabemos el mapeo es una relación 1 a 1.
+
+En una clase que contiene el intervalo, la longitud de bits, el valor en real, la cadena binaria y un arreglo de booleanos.
+
+El \textit{arreglo de booleanos} representa el número binario pero con valores booleanos, esto nos sirve para tener la estructura lógica del número.
+
+Generamos el \textit{string} como lo visualizamos y el arreglo de booleanos es como lo podemos operar (fenotipo y genotipo respectivamente).
 
 \subsection*{Tamaño de búsqueda}
 
+El espacio de búsqueda es el rectangulo en $\mathfrak{R}^n$ generado en el intervalo, donde el intervalo es el rango de la evaluación de las variables.
 \subsection*{Búsqueda aleatoria}
+Podemos acceder a la tabla de ejecuciones a través del siguiente link: 
 
-\subsection*{Tabla}
-
-\begin{table}[h]
-\resizebox{\textwidth}{!}{
-\begin{tabular}{|l|l|l|l|l|}
-\hline
-Función            & Dimensión & Mejor valor $f(x)$ & Valor promedio $f(x)$ & Peor valor $f(x)$ \\ \hline
-\textit{Sphere}           &           &                    &                       &                   \\ \hline
-\textit{Sphere}           &           &                    &                       &                   \\ \hline
-\textit{Sphere}           &           &                    &                       &                   \\ \hline
-\textit{Ackley}           &           &                    &                       &                   \\ \hline
-\textit{Ackley}           &           &                    &                       &                   \\ \hline
-\textit{Ackley}           &           &                    &                       &                   \\ \hline
-\textit{Griewank}           &           &                    &                       &                   \\ \hline
-\textit{Griewank}           &           &                    &                       &                   \\ \hline
-\textit{TenthPowerFunction} &           &                    &                       &                   \\ \hline
-\textit{TenthPowerFunction} &           &                    &                       &                   \\ \hline
-\textit{TenthPowerFunction} &           &                    &                       &                   \\ \hline
-\textit{Rastrigin}          &           &                    &                       &                   \\ \hline
-\textit{Rastrigin}          &           &                    &                       &                   \\ \hline
-\textit{Rastrigin}          &           &                    &                       &                   \\ \hline
-\textit{Rosenbrock}         &           &                    &                       &                   \\ \hline
-\textit{Rosenbrock}         &           &                    &                       &                   \\ \hline
-\textit{Rosenbrock}         &           &                    &                       &                   \\ \hline
-\end{tabular}
-% TODO: Poner el número de iteraciones que realizamos.
-}
-\caption{Ejecución de la búsqueda aleatoria con \textit{número} de iteraciones}
-
-\end{table}
+\href{./evaluationTracking.txt}{\textbf{Ejecuciones}}
 
 \newpage
 \section*{Optimización combinatoria}
@@ -232,30 +214,15 @@ $\therefore$ La gráfica es bipartita, ya que la función objetivo se evalua a 0
 $f(E) = 0 + 0 = 0$
 
 \newpage
-\subsection*{Vector de valores discretos}
+\section*{Conclusiones}
 
-\subsubsection*{Espacio de la búsqueda}
+En conclusión, el estudio de la optimización continua y la optimización aleatoria ha demostrado que ambos métodos tienen sus puntos fuertes y débiles a la hora de encontrar la solución óptima para un problema determinado. La optimización continua es un enfoque más centrado que usa modelos matemáticos para encontrar la solución óptima dentro de un rango de valores dado, mientras que la optimización aleatoria es un enfoque más exploratorio que usa prueba y error para encontrar la mejor solución.
 
-\subsubsection*{Función objetivo}
+En términos de rendimiento, la optimización continua tiende a ser más eficiente y efectiva cuando el problema tiene una estructura clara y bien definida, mientras que la optimización aleatoria es más adecuada para problemas más complejos y dinámicos donde la solución óptima puede no ser evidente de inmediato.
 
-\subsubsection*{Tamaño del espacio de búsqueda}
+En última instancia, la elección entre optimización continua y optimización aleatoria dependerá del problema específico en cuestión y de los objetivos del proceso de optimización. Una combinación de ambos métodos también puede ser efectiva en ciertos casos, ya que pueden complementarse entre sí y proporcionar una estrategia de optimización más robusta.
 
-\subsubsection*{Ejemplar concreto del problema}
-
-\subsubsection*{Ejemplo de solución}
-
-\newpage
-\subsection*{Permutaciones}
-
-\subsubsection*{Espacio de la búsqueda}
-
-\subsubsection*{Función objetivo}
-
-\subsubsection*{Tamaño del espacio de búsqueda}
-
-\subsubsection*{Ejemplar concreto del problema}
-
-\subsubsection*{Ejemplo de solución}
+En general, el estudio de la optimización continua y la optimización aleatoria ha brindado información valiosa sobre las fortalezas y limitaciones de cada enfoque, lo que puede ayudar a guiar la toma de decisiones en varios campos, como la ingeniería, las finanzas y la investigación de operaciones.
 
 \newpage
 %TODO: Agregar las referencias dónde nos basamos.
