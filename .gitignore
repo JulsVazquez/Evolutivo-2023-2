@@ -10,3 +10,7 @@ target/
 *.txt
 hamcrest-core-1.3.jar
 junit-4.11.jar
+*.aux
+*.log
+*.out
+*.synctex.gz
