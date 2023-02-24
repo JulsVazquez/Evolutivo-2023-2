@@ -1,0 +1,9 @@
+*.class
+.vscode
+launch.json
+settings.json
+tarea1/Ejercicio 1/target/
+/target
+target/
+*.jpg
+*.png
