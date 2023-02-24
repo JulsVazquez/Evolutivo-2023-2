@@ -201,9 +201,9 @@ public class RandomOptimization implements Runnable
     public static void main( String[] args )
     {
         double[] interval = new double[]{-5.12,5.12};
-        int dimension = 10;
-        int representationalBits = 120;
-        long iterations = 10000000;
+        int dimension = 5;
+        int representationalBits = 64;
+        long iterations = 100000;
         
         
         EvalFunction evalFunction = new SphereFunction();
@@ -270,15 +270,9 @@ public class RandomOptimization implements Runnable
         
 
         fileManager.writeFile(fileIndex,endMessage.toString(),false);
-
-
-        System.out.println("\nBest value " + globalParams.get(MINIMUN_VALUE));
-        System.out.println("\nAvg value " + globalParams.get(MEAN_VALUE));
-        System.out.println("\n\nWorst value " + globalParams.get(MAXIMUN_VALUE));
+        System.out.println(endMessage.toString());
     }
 
     
 
 }
-
-
