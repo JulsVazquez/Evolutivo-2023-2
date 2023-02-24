@@ -4,5 +4,5 @@ Posicionarse en la raíz del pom.xml y ejecutar los siguientes comandos:
 
 ```bash
 mvn clean install
-java -jar RandomOptimizationProject.jar
+java -jar target/RandomOptimizationProject.jar
 ```
