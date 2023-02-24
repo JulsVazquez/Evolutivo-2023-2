@@ -51,4 +51,10 @@ public class GriewankFunction extends EvalUtils{
         return product;
     }
     
+    
+    @Override
+    public String getFunctionName() {
+        
+        return "Griewank Function";
+    }
 }

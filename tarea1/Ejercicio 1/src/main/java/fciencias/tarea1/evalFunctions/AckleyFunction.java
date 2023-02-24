@@ -27,5 +27,11 @@ public class AckleyFunction extends EvalUtils {
             
         return gradient;
     }
+
+    @Override
+    public String getFunctionName() {
+        
+        return "Ackley Function";
+    }
     
 }

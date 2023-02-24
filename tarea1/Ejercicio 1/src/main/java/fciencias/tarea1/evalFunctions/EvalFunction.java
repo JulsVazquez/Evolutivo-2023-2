@@ -7,5 +7,7 @@ public interface EvalFunction {
     public double partialDerivative(double[] param, int n);
 
     public double[] gradientFuntion(double[] param);
+
+    public String getFunctionName();
     
 }

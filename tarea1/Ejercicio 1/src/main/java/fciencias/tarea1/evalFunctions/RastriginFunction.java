@@ -27,5 +27,12 @@ public class RastriginFunction extends EvalUtils{
             
         return gradient;
     }
+
+    
+    @Override
+    public String getFunctionName() {
+        
+        return "Rastrigin Function";
+    }
     
 }

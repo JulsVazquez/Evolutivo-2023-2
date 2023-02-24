@@ -26,5 +26,12 @@ public class SphereFunction extends EvalUtils{
             
         return gradient;
     }
+
+    
+    @Override
+    public String getFunctionName() {
+        
+        return "Sphere Function";
+    }
     
 }

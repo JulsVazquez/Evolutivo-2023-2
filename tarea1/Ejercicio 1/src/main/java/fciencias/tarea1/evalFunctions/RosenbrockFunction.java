@@ -24,5 +24,12 @@ public class RosenbrockFunction extends EvalUtils{
         // TODO Auto-generated method stub
         return new double[]{0.0};
     }
+
+    
+    @Override
+    public String getFunctionName() {
+        
+        return "Rosenbrock Function";
+    }
     
 }

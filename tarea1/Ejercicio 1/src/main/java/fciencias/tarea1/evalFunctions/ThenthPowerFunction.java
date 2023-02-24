@@ -27,5 +27,12 @@ public class ThenthPowerFunction extends EvalUtils{
             
         return gradient;
     }
+
+    
+    @Override
+    public String getFunctionName() {
+        
+        return "Thenth Power Function";
+    }
     
 }
