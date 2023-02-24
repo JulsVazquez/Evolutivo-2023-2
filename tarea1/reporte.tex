@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage[hidelinks]{hyperref}
 \usepackage{amssymb}
+\spanishdecimal{.}
 
 \begin{document}
 \begin{titlepage}
@@ -14,7 +15,7 @@
 \vspace{1cm}
 {\scshape\huge Facultad de Ciencias \par}
 \vspace{2cm}
-{\scshape\Huge Reporte \par}
+{\scshape\Huge Tarea 1 - Reporte\par}
 \vspace{2cm}
 {\itshape\LARGE Computo Evólutivo \par}
 \vfill
@@ -84,11 +85,29 @@ La función de Rosenbrock es unimodal, por lo que el mínimo global residirá mu
 Es muy fácil encontrar este el mínimo local en esta función y hemos encontrado que es muy popular para las pruebas
 de \textit{optimización por gradientes}.
 
+Empeorará cada vez que vayamos creciendo nuestra dimensión.
+
 \subsection*{Esquema de codificación}
+El intervalo de evaluación se mapea entre $0 \dots 2^n$.
+
+Como sabemos el mapeo es una relación 1 a 1.
+
+En una clase que contiene el intervalo, la longitud de bits, el valor en real, la cadena binaria y un arreglo de booleanos.
+
+El \textit{arreglo de booleanos} representa el número binario pero con valores booleanos, esto nos sirve para tener la estructura lógica del número.
+
+Generamos el \textit{string} como lo visualizamos y el arreglo de booleanos es como lo podemos operar (fenotipo y genotipo respectivamente).
 
 \subsection*{Tamaño de búsqueda}
 
+El espacio de búsqueda es el rectangulo en $\mathfrak{R}^n$ generado en el intervalo, donde el intervalo es el rango de la evaluación de las variables.
+
+\newpage
 \subsection*{Búsqueda aleatoria}
+Podemos acceder a la tabla de ejecuciones a través del siguiente link: 
+
+\href{./evaluationTracking.txt}{\textbf{Ejecuciones}}
+
 
 \subsection*{Tabla}
 
@@ -96,30 +115,59 @@ de \textit{optimización por gradientes}.
 \resizebox{\textwidth}{!}{
 \begin{tabular}{|l|l|l|l|l|}
 \hline
-Función            & Dimensión & Mejor valor $f(x)$ & Valor promedio $f(x)$ & Peor valor $f(x)$ \\ \hline
-\textit{Sphere}           &           &                    &                       &                   \\ \hline
-\textit{Sphere}           &           &                    &                       &                   \\ \hline
-\textit{Sphere}           &           &                    &                       &                   \\ \hline
-\textit{Ackley}           &           &                    &                       &                   \\ \hline
-\textit{Ackley}           &           &                    &                       &                   \\ \hline
-\textit{Ackley}           &           &                    &                       &                   \\ \hline
-\textit{Griewank}           &           &                    &                       &                   \\ \hline
-\textit{Griewank}           &           &                    &                       &                   \\ \hline
-\textit{TenthPowerFunction} &           &                    &                       &                   \\ \hline
-\textit{TenthPowerFunction} &           &                    &                       &                   \\ \hline
-\textit{TenthPowerFunction} &           &                    &                       &                   \\ \hline
-\textit{Rastrigin}          &           &                    &                       &                   \\ \hline
-\textit{Rastrigin}          &           &                    &                       &                   \\ \hline
-\textit{Rastrigin}          &           &                    &                       &                   \\ \hline
-\textit{Rosenbrock}         &           &                    &                       &                   \\ \hline
-\textit{Rosenbrock}         &           &                    &                       &                   \\ \hline
-\textit{Rosenbrock}         &           &                    &                       &                   \\ \hline
+Función            & Dimensión & Mejor valor $f(x)$      & Valor promedio $f(x)$  & Peor valor $f(x)$      \\ \hline
+Sphere             & 3         & $1.8388104482495684E-4$ & $26.228284880516664$   & $77.41539833725864$    \\ \hline
+Sphere             & 5         & $0.30499115744426286$   & $43.69469790580357$    & $120.65219692142588$   \\ \hline
+Sphere             & 9         & $3.585023088864636$     & $78.67145199347094$    & $190.67068555887488$   \\ \hline
+Ackley             & 2         &  $1.4502824749594718$  &  $19.954401397387986$   &  $22.29555482960025$   \\ \hline
+Ackley             & 5         &  $7.490924234756679$   &  $20.74987604660682$  & $22.177725738277843$   \\ \hline
+Ackley             & 9         &   $14.13124833015569$   &  $20.93876277689465$   &  $22.07890788446725$  \\ \hline
+Griewank           & 2         & $0.07015151574184042$ & $60.230578811087625$  & $180.77813785576174$  \\ \hline
+Griewank           & 5         & $1.4789647997231858$  & $149.5026117850489$  & $418.9556047562811$   \\ \hline
+Griewank           & 9         &  $12.65684335638531$  & $271.3594580765735$    &  $647.434421216184$  \\ \hline
+TenthPowerFunction & 2         & $1.042631106127349E-18$ & $2172550.761178825$    & $2.4224378689473733E7$ \\ \hline
+TenthPowerFunction & 5         & $9.017804034593451E-4$  & $5625542.1255500885$   & $4.973263581511871E7$  \\ \hline
+TenthPowerFunction & 9         & $2.1035104302527907$    & $1.0130756505013872E7$ & $6.323900466832036E7$  \\ \hline
+Rastrigin          & 2         & $0.01608369528754494$   & $36.53407032106714$    & $80.69454446037095$    \\ \hline
+Rastrigin          & 5         & $9.94070263509439$      & $92.48389719147004$    & $190.34125382653684$   \\ \hline
+Rastrigin          & 9         & $34.59474190113805$     & $166.81196523677778$   & $298.53458623656354$   \\ \hline
+Rosenbrock         & 2         &  $7.112383431115087E-4$  &  $514.2627375553499$  &  $3862.4824683402153$   \\ \hline
+Rosenbrock         & 5         &  $4.692007490259288$   &  $1997.6400117782835$  &  $ 12187.115945916024$   \\ \hline
+Rosenbrock         & 9         &  $54.88025818422838$    &  $3948.0571341025716
+$  &  $17691.564284100314$  \\ \hline
 \end{tabular}
-% TODO: Poner el número de iteraciones que realizamos.
 }
-\caption{Ejecución de la búsqueda aleatoria con \textit{número} de iteraciones}
-
+\caption{Se realizo con una representación de 90 bits y $1,000,000$ de iteraciones}
 \end{table}
+
+La tabla anterior no nos bastó para poder ejecutar nuestro programa, ya que $1,000,000$ de iteraciones no tomaban más de $10$ segundos en terminar.
+
+Decidimos probar hasta cuántas iteraciones podíamos obtener en un tiempo de espera razonable.
+
+Por lo cuál decidimos probar con lo siguientes valores:
+
+Dimesión: \textit{10}
+
+Representación de \textit{120 Bits}
+
+\textit{10,000,000} de iteraciones
+
+\begin{table}[h]
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Función    & Dimensión & Mejor valor $f(x)$   & Valor promedio $f(x)$ & Peor valor $f(x)$     \\ \hline
+Sphere     & 12        & $2.7863999786720273$ & $87.401815517356$     & $213.96623422450568$  \\ \hline
+Ackley     & 12        & $9.878975932264265$  & $20.952802360972367$  & $22.10919059881944$   \\ \hline
+Griewank   & 12        & $18.84266114545478$  & $300.97433172227164$  & $752.1725723732053$   \\ \hline
+TenthPower & 12        & $0.7845616316002929$ & $1.127077071895421E7$ & $6.926913511092395E7$ \\ \hline
+Rastring   & 12        & $48.31909847794876$  & $185.26284437499814$  & $340.9831947085734$   \\ \hline
+Rosenbrock & 12        & $52.04143073737589$  & $4447.947615150212$   & $21053.91293520773$   \\ \hline
+\end{tabular}
+}
+\caption{Representación 120 bits y $10,000,000$ de iteraciones}
+\end{table}
+
 
 \newpage
 \section*{Optimización combinatoria}
@@ -232,30 +280,15 @@ $\therefore$ La gráfica es bipartita, ya que la función objetivo se evalua a 0
 $f(E) = 0 + 0 = 0$
 
 \newpage
-\subsection*{Vector de valores discretos}
+\section*{Conclusiones}
 
-\subsubsection*{Espacio de la búsqueda}
+En conclusión, el estudio de la optimización continua y la optimización aleatoria ha demostrado que ambos métodos tienen sus puntos fuertes y débiles a la hora de encontrar la solución óptima para un problema determinado. La optimización continua es un enfoque más centrado que usa modelos matemáticos para encontrar la solución óptima dentro de un rango de valores dado, mientras que la optimización aleatoria es un enfoque más exploratorio que usa prueba y error para encontrar la mejor solución.
 
-\subsubsection*{Función objetivo}
+En términos de rendimiento, la optimización continua tiende a ser más eficiente y efectiva cuando el problema tiene una estructura clara y bien definida, mientras que la optimización aleatoria es más adecuada para problemas más complejos y dinámicos donde la solución óptima puede no ser evidente de inmediato.
 
-\subsubsection*{Tamaño del espacio de búsqueda}
+En última instancia, la elección entre optimización continua y optimización aleatoria dependerá del problema específico en cuestión y de los objetivos del proceso de optimización. Una combinación de ambos métodos también puede ser efectiva en ciertos casos, ya que pueden complementarse entre sí y proporcionar una estrategia de optimización más robusta.
 
-\subsubsection*{Ejemplar concreto del problema}
-
-\subsubsection*{Ejemplo de solución}
-
-\newpage
-\subsection*{Permutaciones}
-
-\subsubsection*{Espacio de la búsqueda}
-
-\subsubsection*{Función objetivo}
-
-\subsubsection*{Tamaño del espacio de búsqueda}
-
-\subsubsection*{Ejemplar concreto del problema}
-
-\subsubsection*{Ejemplo de solución}
+En general, el estudio de la optimización continua y la optimización aleatoria ha brindado información valiosa sobre las fortalezas y limitaciones de cada enfoque, lo que puede ayudar a guiar la toma de decisiones en varios campos, como la ingeniería, las finanzas y la investigación de operaciones.
 
 \newpage
 %TODO: Agregar las referencias dónde nos basamos.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.1.10)  22 FEB 2023 18:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.1.10)  23 FEB 2023 20:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -220,26 +220,26 @@ LaTeX Info: Redefining \% on input line 25.
 )
 \openout1 = `reporte.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Info: Redefining \. on input line 8.
-LaTeX Info: Redefining \% on input line 8.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Info: Redefining \. on input line 9.
+LaTeX Info: Redefining \% on input line 9.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count273
@@ -262,7 +262,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 8.
+Package hyperref Info: Link coloring OFF on input line 9.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -275,9 +275,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count279
 )
-LaTeX Info: Redefining \ref on input line 8.
-LaTeX Info: Redefining \pageref on input line 8.
-LaTeX Info: Redefining \nameref on input line 8.
+LaTeX Info: Redefining \ref on input line 9.
+LaTeX Info: Redefining \pageref on input line 9.
+LaTeX Info: Redefining \nameref on input line 9.
 
 (build/reporte.out) (build/reporte.out)
 \@outlinefile=\write3
@@ -286,23 +286,23 @@ LaTeX Info: Redefining \nameref on input line 8.
 <./img/logoFC.png, id=4, 1593.955pt x 400.49625pt>
 File: ./img/logoFC.png Graphic file (type png)
 <use ./img/logoFC.png>
-Package pdftex.def Info: ./img/logoFC.png  used on input line 10.
+Package pdftex.def Info: ./img/logoFC.png  used on input line 11.
 (pdftex.def)             Requested size: 345.0pt x 86.67944pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 10--10
+Overfull \hbox (15.0pt too wide) in paragraph at lines 11--11
 [][] 
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./img/logoFC.png>]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 51.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 52.
 
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 51.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
 
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -312,47 +312,52 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.74 
-      [1] [2]
-<./img/bigrafica.png, id=46, 1541.76pt x 490.83376pt>
+l.75 
+      [1]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 103
+.
+ (/usr/share/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+) [2] [3]
+<./img/bigrafica.png, id=55, 1541.76pt x 490.83376pt>
 File: ./img/bigrafica.png Graphic file (type png)
 <use ./img/bigrafica.png>
-Package pdftex.def Info: ./img/bigrafica.png  used on input line 137.
+Package pdftex.def Info: ./img/bigrafica.png  used on input line 185.
 (pdftex.def)             Requested size: 385.43906pt x 122.70813pt.
 
-Overfull \hbox (40.43906pt too wide) in paragraph at lines 137--138
+Overfull \hbox (40.43906pt too wide) in paragraph at lines 185--186
  [] 
  []
 
-[3 <./img/bigrafica.png>]
-<./img/graphExample.png, id=57, 645.41125pt x 557.08125pt>
+[4 <./img/bigrafica.png>]
+<./img/graphExample.png, id=65, 645.41125pt x 557.08125pt>
 File: ./img/graphExample.png Graphic file (type png)
 <use ./img/graphExample.png>
-Package pdftex.def Info: ./img/graphExample.png  used on input line 190.
+Package pdftex.def Info: ./img/graphExample.png  used on input line 238.
 (pdftex.def)             Requested size: 161.35242pt x 139.26997pt.
-<./img/biPartitionGraph.png, id=58, 636.3775pt x 556.0775pt>
+<./img/biPartitionGraph.png, id=66, 636.3775pt x 556.0775pt>
 File: ./img/biPartitionGraph.png Graphic file (type png)
 <use ./img/biPartitionGraph.png>
-Package pdftex.def Info: ./img/biPartitionGraph.png  used on input line 204.
+Package pdftex.def Info: ./img/biPartitionGraph.png  used on input line 252.
 (pdftex.def)             Requested size: 159.09398pt x 139.01903pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[4 <./img/graphExample.png>] [5 <./img/biPartitionGraph.png>] [6] [7]
-Overfull \hbox (2.24724pt too wide) in paragraph at lines 270--271
+[5 <./img/graphExample.png>] [6 <./img/biPartitionGraph.png>] [7]
+Overfull \hbox (2.24724pt too wide) in paragraph at lines 303--304
 \OT1/cmtt/m/n/10 com / projects / toy-[]problems / sphere-[]function-[]pure-[]e
 xcel# : [] : text =
  []
 
 
-Overfull \hbox (16.4971pt too wide) in paragraph at lines 270--271
+Overfull \hbox (16.4971pt too wide) in paragraph at lines 303--304
 \OT1/cmtt/m/n/10 The % 20sphere % 20function % 20is % 20one ,[] proposed % 20mo
 dification % 20of %
  []
 
 
-Overfull \hbox (13.8884pt too wide) in paragraph at lines 271--272
+Overfull \hbox (13.8884pt too wide) in paragraph at lines 304--305
 \OT1/cmr/m/n/10 ction - Wi-ki-pe-dia. Wi-ki-pe-dia, the free ency-clo-pe-dia. [
 ]$\OT1/cmtt/m/n/10 https : / / en . wikipedia .
  []
@@ -365,28 +370,30 @@ Package rerunfilecheck Info: File `reporte.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 10028 strings out of 478238
- 155992 string characters out of 5850456
- 468804 words of memory out of 5000000
- 28110 multiletter control sequences out of 15000+600000
- 474906 words of font info for 49 fonts, out of 8000000 for 9000
+ 10036 strings out of 478238
+ 156164 string characters out of 5850456
+ 474804 words of memory out of 5000000
+ 28122 multiletter control sequences out of 15000+600000
+ 475614 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,10n,63p,336b,366s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,11n,63p,546b,366s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12
-.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/sha
-re/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on build/reporte.pdf (9 pages, 414258 bytes).
+cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><
+/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.
+pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/f
+onts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texmf-dist/fonts/type1/
+public/amsfonts/symbols/msam10.pfb>
+Output written on build/reporte.pdf (9 pages, 428595 bytes).
 PDF statistics:
- 196 PDF objects out of 1000 (max. 8388607)
- 152 compressed objects within 2 object streams
- 52 named destinations out of 1000 (max. 500000)
+ 195 PDF objects out of 1000 (max. 8388607)
+ 147 compressed objects within 2 object streams
+ 42 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
