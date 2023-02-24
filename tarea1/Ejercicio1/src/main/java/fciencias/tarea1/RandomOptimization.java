@@ -198,33 +198,22 @@ public class RandomOptimization implements Runnable
         globalParams.replace(FINALIZED_THREADS, ((Integer)(globalParams.get(FINALIZED_THREADS)) + 1));
     }
 
-    public static void main( String[] args )
+    public static String runEvaluationProcess(EvalFunction evalFunction, int dimension, double[] interval, int representationalBits, long iterations, boolean resetFile, Map<String,Object> globalParams, FileManager fileManager)
     {
-        double[] interval = new double[]{-5.12,5.12};
-        int dimension = 5;
-        int representationalBits = 64;
-        long iterations = 100000;
-        
-        
-        EvalFunction evalFunction = new SphereFunction();
 
-
-        FileManager fileManager = new FileManager();
-        long fileIndex = fileManager.openFile(OUTPUT_FILE_NAME,false);
-        fileManager.writeFile(fileIndex,"Tracking for " + evalFunction.getFunctionName() + "\n",true);
+        
+        long fileIndex = fileManager.openFile(OUTPUT_FILE_NAME,resetFile);
+        fileManager.writeFile(fileIndex,"Tracking for " + evalFunction.getFunctionName() + "\n",resetFile);
 
         RandomOptimization optimumRandomOptimization = new RandomOptimization(evalFunction, interval, iterations, representationalBits,dimension);
         BinaryState optimuBinaryState = optimumRandomOptimization.getRandomState(interval, dimension, representationalBits,0);
         optimumRandomOptimization.setGlobalBinaryState(optimuBinaryState);
 
+        
         double initValue = evalFunction.evalSoution(optimuBinaryState.getRealValue());
-        Map<String,Object> globalParams = new HashMap<>();
-        globalParams.put(FINALIZED_THREADS,0);
-        globalParams.put(MAXIMUN_VALUE,initValue);
-        globalParams.put(MINIMUN_VALUE,initValue);
-        globalParams.put(MEAN_VALUE,initValue);
-        globalParams.put(TOTAL_ITERATIONS,0);
-        globalParams.put(PROGRESS_INDICATOR,0.0);
+        globalParams.replace(MAXIMUN_VALUE, initValue);
+        globalParams.replace(MINIMUN_VALUE, initValue);
+        globalParams.replace(MEAN_VALUE, initValue);
 
         int totalThreads = 25;
 
@@ -261,7 +250,7 @@ public class RandomOptimization implements Runnable
         long deltatime = finalTime - initTime;
 
         String fileName = "Results.txt";
-        fileIndex = fileManager.openFile(fileName,false);
+        fileIndex = fileManager.openFile(fileName,resetFile);
         StringBuilder endMessage = new StringBuilder("Results for " + evalFunction.getFunctionName() + " using dimension " + dimension + " and " + iterations+ " iterations \n")
         .append("Execution time: " + deltatime/1000.0 + "s \n")
         .append("Best value: " + globalParams.get(MINIMUN_VALUE) + "\n")
@@ -269,10 +258,90 @@ public class RandomOptimization implements Runnable
         .append("Worst value: " + globalParams.get(MAXIMUN_VALUE) + "\n");
         
 
-        fileManager.writeFile(fileIndex,endMessage.toString(),false);
+        // fileManager.writeFile(fileIndex,endMessage.toString(),false);
         System.out.println(endMessage.toString());
+        return endMessage.toString();
     }
 
-    
+    public static void main(String[] args) {
+        
+        int dimension = 5;
+        int representationalBits = 64;
+        long iterations = 100000;
+
+        Map<String,Object> globalParams = new HashMap<>();
+
+        FileManager fileManager = new FileManager();
+        
+        String results = "";
+        
+        globalParams.put(FINALIZED_THREADS,0);
+        globalParams.put(MAXIMUN_VALUE,0.0);
+        globalParams.put(MINIMUN_VALUE,0.0);
+        globalParams.put(MEAN_VALUE,0.0);
+        globalParams.put(TOTAL_ITERATIONS,0);
+        globalParams.put(PROGRESS_INDICATOR,0.0);
+
+
+        EvalFunction evalFunction = new SphereFunction();
+        double[] interval = new double[]{-5.12,5.12};
+        results = results + RandomOptimization.runEvaluationProcess(evalFunction, dimension, interval, representationalBits, iterations,false,globalParams,fileManager);
+
+        globalParams.replace(FINALIZED_THREADS,0);
+        globalParams.replace(MAXIMUN_VALUE,0.0);
+        globalParams.replace(MINIMUN_VALUE,0.0);
+        globalParams.replace(MEAN_VALUE,0.0);
+        globalParams.replace(TOTAL_ITERATIONS,0);
+        globalParams.replace(PROGRESS_INDICATOR,0.0);
+        evalFunction = new AckleyFunction();
+        interval = new double[]{-30,30};
+        results = results + "\n" + RandomOptimization.runEvaluationProcess(evalFunction, dimension, interval, representationalBits, iterations,false,globalParams,fileManager);
+
+
+        globalParams.replace(FINALIZED_THREADS,0);
+        globalParams.replace(MAXIMUN_VALUE,0.0);
+        globalParams.replace(MINIMUN_VALUE,0.0);
+        globalParams.replace(MEAN_VALUE,0.0);
+        globalParams.replace(TOTAL_ITERATIONS,0);
+        globalParams.replace(PROGRESS_INDICATOR,0.0);
+        evalFunction = new GriewankFunction();
+        interval = new double[]{-600,600};
+        results = results + "\n" + RandomOptimization.runEvaluationProcess(evalFunction, dimension, interval, representationalBits, iterations,true,globalParams,fileManager);
+
+
+        globalParams.replace(FINALIZED_THREADS,0);
+        globalParams.replace(MAXIMUN_VALUE,0.0);
+        globalParams.replace(MINIMUN_VALUE,0.0);
+        globalParams.replace(MEAN_VALUE,0.0);
+        globalParams.replace(TOTAL_ITERATIONS,0);
+        globalParams.replace(PROGRESS_INDICATOR,0.0);
+        evalFunction = new ThenthPowerFunction();
+        interval = new double[]{-5.12,5.12};
+        results = results + "\n" + RandomOptimization.runEvaluationProcess(evalFunction, dimension, interval, representationalBits, iterations,true,globalParams,fileManager);
+
+
+
+        globalParams.replace(FINALIZED_THREADS,0);
+        globalParams.replace(MAXIMUN_VALUE,0.0);
+        globalParams.replace(MINIMUN_VALUE,0.0);
+        globalParams.replace(MEAN_VALUE,0.0);
+        globalParams.replace(TOTAL_ITERATIONS,0);
+        globalParams.replace(PROGRESS_INDICATOR,0.0);
+        evalFunction = new RastriginFunction();
+        interval = new double[]{-5.12,5.12};
+        results = results + "\n" + RandomOptimization.runEvaluationProcess(evalFunction, dimension, interval, representationalBits, iterations,true,globalParams,fileManager);
+
+
+        globalParams.replace(FINALIZED_THREADS,0);
+        globalParams.replace(MAXIMUN_VALUE,0.0);
+        globalParams.replace(MINIMUN_VALUE,0.0);
+        globalParams.replace(MEAN_VALUE,0.0);
+        globalParams.replace(TOTAL_ITERATIONS,0);
+        globalParams.replace(PROGRESS_INDICATOR,0.0);
+        evalFunction = new RosenbrockFunction();
+        interval = new double[]{-2.048,2.048};
+        results = results + "\n" + RandomOptimization.runEvaluationProcess(evalFunction, dimension, interval, representationalBits, iterations,true,globalParams,fileManager);
+        fileManager.writeFile(fileManager.openFile("Results.txt", false),results,true);
+    }
 
 }
