@@ -2,9 +2,11 @@
 .vscode
 launch.json
 settings.json
-tarea1/Ejercicio 1/target/
+tarea1/Ejercicio1/target/
 /target
 target/
 *.jpg
 *.png
 *.txt
+hamcrest-core-1.3.jar
+junit-4.11.jar
