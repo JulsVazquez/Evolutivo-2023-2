@@ -1,7 +1,0 @@
-*.class
-.vscode
-launch.json
-settings.json
-artifact/*/*/target/
-*.jpg
-*.png

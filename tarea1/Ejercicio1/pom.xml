@@ -91,43 +91,7 @@
       </plugins>
     </pluginManagement>
     <plugins>
-      <plugin>
-        <artifactId>maven-antrun-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>install</phase>
-            <configuration>
-              <tasks>
-                <copy todir="${outputDirectoryLibraries}" file="target/RandomOptimizationProject.jar" />
-              </tasks>
-            </configuration>
-            <goals>
-              <goal>run</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>copy-dependencies</id>
-            <phase>prepare-package</phase>
-            <goals>
-              <goal>copy-dependencies</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>
-                ${outputDirectoryLibraries}
-              </outputDirectory>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
-
+    
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
