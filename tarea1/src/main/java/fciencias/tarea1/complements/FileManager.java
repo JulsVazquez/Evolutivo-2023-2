@@ -1,23 +1,34 @@
 package fciencias.tarea1.complements;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 
 public class FileManager {
 
     private Map<String,FileWriter> filesList;
+    private Map<String,BufferedInputStream> filesBuffer;
     private Map<Long,String> filesIndex;
+    private List<String[]> filesLines;
     private long currentKey = 0;
 
     public FileManager()
     {
         filesList = new HashMap<>();
         filesIndex = new HashMap<>();
+        filesBuffer = new HashMap<>();
+        filesLines = new LinkedList<>();
     }
 
     public Long openFile(String file, boolean append)
@@ -36,6 +47,7 @@ public class FileManager {
             {
                 FileWriter newFuiFileWriter = new FileWriter(file,append);
                 filesList.put(file, newFuiFileWriter);
+                filesBuffer.put(file,new BufferedInputStream(new FileInputStream(file)));
                 filesIndex.put(currentKey, file);
                 currentKey++;
                 return currentKey - 1;
@@ -72,6 +84,29 @@ public class FileManager {
         }
         
        
+    }
+
+    public String readFile(long index)
+    {
+         BufferedInputStream bufferedInputStream = filesBuffer.get(filesIndex.get(index));
+         byte[] newLine = new byte[1024];
+        
+         int lineLength = 0;
+        try {
+            lineLength = bufferedInputStream.read(newLine);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+         byte[] readedLine = Arrays.copyOf(newLine, lineLength);
+         return new String(readedLine);
+
+    }
+
+    public String readFileLine(long index, int line)
+    {
+        String[] lines =  readFile(index).split("\n");
+        return lines[line];
     }
     
 }
