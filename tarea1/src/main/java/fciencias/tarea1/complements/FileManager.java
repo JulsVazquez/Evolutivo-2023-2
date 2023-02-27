@@ -49,15 +49,15 @@ public class FileManager {
         return -1L;
     }
 
-    public void writeFile(long index, String newText,boolean newFile)
+    public void writeFile(long index, String newText,boolean appendFile)
     {
 
         BufferedWriter bufferedWriter;
         try {
             FileWriter fileWriter = filesList.get(filesIndex.get(index));
-            bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter = new BufferedWriter(fileWriter,newText.length());
             PrintWriter printWriter = new PrintWriter(bufferedWriter); 
-            if(newFile)
+            if(!appendFile)
                 printWriter.write(newText);
             else
                 printWriter.append(newText);
