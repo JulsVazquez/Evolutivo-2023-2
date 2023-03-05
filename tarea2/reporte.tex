@@ -128,7 +128,29 @@ Podemos verlo con el siguiente ejemplo:
 
 \textit{Gasto: $\$80.00$, Beneficio: $24$}
 \subsubsection*{Función de evaluación de soluciones}
+Nuestra función de evaluación de soluciones será la restricción de que no debemos exceder el peso de la mochila; si una solución (aleatoria) excediera el peso tendríamos que deshecharla.
 
+Por lo que tendremos que estar atados a lo siguiente:
+
+\begin{equation*}
+\sum_{j=1}^n w_{j}x_{j} \leq c
+\end{equation*}
+
+Usando lo anterior, las soluciones que tomen al \textit{Botiquin de primeros auxilios} como objeto a comprar serán descartadas aquellas que agreguen:
+
+\begin{itemize}
+	\item \textit{La linterna, debido a que sobrepasan la cantidad de dinero}
+	\item \textit{La bolsa para dormir, por la razón anterior.}
+	\item \textit{Los tres objetos: Bolsa para dormir, linterna y cerillos}
+\end{itemize}
+
+Por lo que la única combinación que podríamos aceptar al comprar el \textit{botiquin de primeros auxilios} sería:
+
+\begin{itemize}
+	\item \textit{Cerillos; debido a que la suma da exactamente $\$100.00$}
+\end{itemize}
+
+\textit{Algo que tenemos que tener en cuenta es que las propuestas de soluciones no siempre serán las que maximicen el beneficio de nuestra mochila, debido a que en este ejemplo al sólo elegir el botiquin de primeros auxilios y los cerillos estamos obteniendo un beneficio de $19$, por lo que no es el beneficio máximo que podremos obtener que fue de $24$}.
 
 \subsection*{Descripción del generador de soluciones aleatorias}
 %TODO
