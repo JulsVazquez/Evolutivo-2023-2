@@ -39,6 +39,12 @@ $w_j = $ peso del objeto $j$
 $c = $ capacidad de la mochila
 \end{center}
 
+selecciona un subconjunto de los elementos tal que se maximice:
+
+\begin{equation*}
+z = \sum_{j=1}^n p_jx_j
+\end{equation*}
+
 sujeto a:
 
 \begin{equation*}
@@ -72,10 +78,57 @@ donde:
 %TODO
 
 \subsection*{Descripción de la función de evaluación}
-%TODO
+Nuestra función de evaluación es la siguiente:
 
+\begin{equation*}
+z = \sum_{j=1}^n p_jx_j
+\end{equation*}
+
+Por lo que estamos buscando un subconjunto de elementos talq ue podamos maximizar dicha expresión, pero tenemos un limitante en nuestra expresión, el cuál sera que la suma de los elementos que vayamos a tener en nuestra mochila nos den el maximo beneficio sin que sobrepasen su capacidad.
+
+Podemos verlo con el siguiente ejemplo:
+
+\textit{Imaginemos que iremos de excursión a un bosque, por lo que necesitaremos herramientas de supervivencia para sobrevivir. Un experto nos da una lista de elementos a comprar, supongamos los siguientes elementos:}
+
+\begin{itemize}
+	\item \textit{Linterna}
+	\item \textit{Bolsa para dormir}
+	\item \textit{Cerillos}
+	\item \textit{Botiquin de primeros auxilios}
+\end{itemize}
+
+\textit{Lo ideal es que pudieramos comprar todo lo de la lista, pero debido a que tenemos una restricción digamos que cada uno de los objetos a comprar tiene un determinado precio que nunca cambiará y a nosotros se nos adjudico una cierta cantidad de dinero a gastar, quedando de la siguiente manera la lista:}
+
+\textit{Dinero máximo a gastar: $\$100$}
+\begin{itemize}
+	\item \textit{Linterna - $\$20.00$}
+	\item \textit{Bolsa para dormir - $\$50.00$}
+	\item \textit{Cerillos - $\$10.00$}
+	\item \textit{Botiquin de primeros auxilios - $\$90.00$}
+\end{itemize}
+
+\textit{Ahora, esta restricción es importante, ya que no podemos comprar todo lo que se nos propone, pero algo más que tenemos que tener en cuenta es que debemos de obtener un beneficio dentro de nuestra compra, en otras palabras, tenemos que saber si lo que compramos tendrá mejor o menor beneficio de acuerdo a dicha compra, por lo que tendremos que anexarlo para poder hacer una compra mucho más inteligente:}
+
+\textit{Dinero máximo a gastar: $\$100$}
+
+\textit{Anexando un beneficio del 1-10.}
+\begin{itemize}
+	\item \textit{Linterna - $\$20.00$ - 7 de beneficio}
+	\item \textit{Bolsa para dormir - $\$50.00$ - 8 de beneficio}
+	\item \textit{Cerillos - $\$10.00$ - 9 de beneficio}
+	\item \textit{Botiquin de primeros auxilios - $\$90.00$ - 10 de beneficio}
+\end{itemize}
+
+\textit{Por lo que nuestro ideal sería la suma de toda lista, dando un beneficio de $34$, pero dado que no podemos comprar todo tendremos que maximizar nuestro beneficio con los $\$100$ que tenemos, por lo que el beneficio máximo de esta compra sería: $24$. Ya que elegiríamos los siguientes productos:}
+\begin{itemize}
+	\item \textit{Linterna - $\$20.00$ - 7 de beneficio}
+	\item \textit{Bolsa para dormir - $\$50.00$ - 8 de beneficio}
+	\item \textit{Cerillos - $\$10.00$ - 9 de beneficio}
+\end{itemize}
+
+\textit{Gasto: $\$80.00$, Beneficio: $24$}
 \subsubsection*{Función de evaluación de soluciones}
-%TODO
+
 
 \subsection*{Descripción del generador de soluciones aleatorias}
 %TODO
