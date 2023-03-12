@@ -69,7 +69,17 @@ donde:
 %TODO
 
 \subsection*{Descripción del esquema de representación de soluciones}
-%TODO
+La representación utilizada en nuestra tarea fue un vector de $n$ localidades, donde $n$ será el número de los elementos que tenemos.
+
+Tendrá la siguiente forma:
+
+\begin{equation*}
+[x_1, x_2, x_3, \dots x_n]
+\end{equation*}
+
+Lo cuál representará únicamente los elementos que llevaremos en nuestra mochila.
+
+Decidimos hacerlo de esta forma debido a que en la solución lo único importante es saber qué elementos llevaremos, no nos importarán los elementos que no podamos cargar, porque justamente no los cargaremos, los elementos que no maximicen nuestra mochila en beneficio tampoco nos interesarán, debido a que no será una mochila óptima para cargar.
 
 \subsubsection*{Ventajas}
 %TODO
@@ -153,10 +163,26 @@ Por lo que la única combinación que podríamos aceptar al comprar el \textit{b
 \textit{Algo que tenemos que tener en cuenta es que las propuestas de soluciones no siempre serán las que maximicen el beneficio de nuestra mochila, debido a que en este ejemplo al sólo elegir el botiquin de primeros auxilios y los cerillos estamos obteniendo un beneficio de $19$, por lo que no es el beneficio máximo que podremos obtener que fue de $24$}.
 
 \subsection*{Descripción del generador de soluciones aleatorias}
-%TODO
+Como tenemos una mochila con una capacidad máxima para cargar cierta cantidad de objetos, y cada objeto tendrá un peso y un beneficio asociado. Nuestro objetivo será determinar qué objetos debes incluir en la mochila para maximizar el beneficio total de los objetos, sin exceder la capacidad máxima de la mochila.
+
+Para encontrar soluciones aleatorias al problema, primero elegiremos un número de objetos que quepan en la mochila, ya que tendremos un valor máximo dado al inicio del archivo. Seleccionaremos a lo largo del archivo un subconjunto de los objetos descritos. La selección debe tener en cuenta que no podemos exceder la capacidad máxima de la mochila. Pero podemos ir seleccionando objetos y sumando sus pesos hasta alcanzar la capacidad máxima. Si nos pasamos de la capacidad máxima, debemos eliminar uno o más objetos para ajustarnos a la capacidad máxima.
+
+Una vez que hayamos seleccionado un subconjunto de elementos que caben en la mochila, debemos calcular el beneficio total. Esto lo haremos sumando los valores de los objetos seleccionados.
+
+Repetiremos la selección de objetos y calcularemos el beneficio varias veces, para obtener distintas soluciones. A continuación, seleccionaremos  la solución con el valor total más alto como solución final.
 
 \subsubsection*{Representación de soluciones}
-%TODO
+La representación utilizada en nuestra tarea fue un vector de $n$ localidades, donde $n$ será el número de los elementos que tenemos.
+
+Tendrá la siguiente forma:
+
+\begin{equation*}
+[x_1, x_2, x_3, \dots x_n]
+\end{equation*}
+
+Lo cuál representará únicamente los elementos que llevaremos en nuestra mochila.
+
+Decidimos hacerlo de esta forma debido a que en la solución lo único importante es saber qué elementos llevaremos, no nos importarán los elementos que no podamos cargar, porque justamente no los cargaremos, los elementos que no maximicen nuestra mochila en beneficio tampoco nos interesarán, debido a que no será una mochila óptima para cargar.
 
 \subsection*{Descripción de la función u operador de vecindad}
 %TODO
@@ -178,6 +204,7 @@ Por lo que la única combinación que podríamos aceptar al comprar el \textit{b
 \section*{Referencias}
 \begin{enumerate}
 	\item Korte, B., \& Vygen, J. (2006). Combinatorial Optimization: Theory and Algorithms. Springer London, Limited.
+	\item P. J. M. van Laarhoven. (1987). Simulated annealing: Theory and applications. D. Reidel.
 \end{enumerate}
 
 \end{document}
