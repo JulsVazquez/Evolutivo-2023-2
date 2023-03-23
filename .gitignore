@@ -14,3 +14,4 @@ junit-4.11.jar
 *.log
 *.out
 *.synctex.gz
+*.jar
