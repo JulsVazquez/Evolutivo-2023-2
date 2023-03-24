@@ -1,18 +1,19 @@
-package fciencias.tarea1;
+package com.fciencias.evolutivo.implementations.tarea1;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import fciencias.tarea1.binaryRepresentation.BinaryState;
-import fciencias.tarea1.complements.FileManager;
-import fciencias.tarea1.evalFunctions.*;
+import com.fciencias.evolutivo.basics.NormalRandomDistribution;
+import com.fciencias.evolutivo.basics.RandomDistribution;
+import com.fciencias.evolutivo.binaryRepresentation.BinaryMappingState;
+import com.fciencias.evolutivo.evalFunctions.*;
+import com.fciencias.evolutivo.libraries.FileManager;
+
 
 public class RandomOptimization implements Runnable
 {
-
     private EvalFunction evalFunction;
 
     private double[] interval;
@@ -23,7 +24,7 @@ public class RandomOptimization implements Runnable
 
     private int dimension;
 
-    private BinaryState globalBinaryState;
+    private BinaryMappingState globalBinaryMappingState;
 
     private Map<String,Object> globalParams;
 
@@ -56,23 +57,23 @@ public class RandomOptimization implements Runnable
         this.dimension = dimension;
     }
 
-    public RandomOptimization(EvalFunction evalFunction, double[] interval, long iterations, int representationalBits,BinaryState globalState, int dimension, int hilo) {
+    public RandomOptimization(EvalFunction evalFunction, double[] interval, long iterations, int representationalBits,BinaryMappingState globalState, int dimension, int hilo) {
         this.evalFunction = evalFunction;
         this.interval = interval;
         this.iterations = iterations;
         this.representationalBits = representationalBits;
-        this.globalBinaryState = globalState;
+        this.globalBinaryMappingState = globalState;
         this.dimension = dimension;
         this.hilo = hilo;
     }
 
-    public RandomOptimization(EvalFunction evalFunction, double[] interval, long iterations, int representationalBits,int dimension, BinaryState globalBinaryState) {
+    public RandomOptimization(EvalFunction evalFunction, double[] interval, long iterations, int representationalBits,int dimension, BinaryMappingState globalBinaryMappingState) {
         this.evalFunction = evalFunction;
         this.interval = interval;
         this.iterations = iterations;
         this.representationalBits = representationalBits;
         this.dimension = dimension;
-        this.globalBinaryState = globalBinaryState;
+        this.globalBinaryMappingState = globalBinaryMappingState;
     }
 
     public EvalFunction getEvalFunction() {
@@ -108,12 +109,12 @@ public class RandomOptimization implements Runnable
     }
 
     
-    public BinaryState getGlobalBinaryState() {
-        return globalBinaryState;
+    public BinaryMappingState getGlobalBinaryMappingState() {
+        return globalBinaryMappingState;
     }
 
-    public void setGlobalBinaryState(BinaryState globalBinaryState) {
-        this.globalBinaryState = globalBinaryState;
+    public void setGlobalBinaryMappingState(BinaryMappingState globalBinaryMappingState) {
+        this.globalBinaryMappingState = globalBinaryMappingState;
     }
 
     public int getDimension() {
@@ -146,20 +147,20 @@ public class RandomOptimization implements Runnable
         return randVector;
     }
 
-    public BinaryState getRandomState(double[] interval, int dimension, int bits,int randomize)
+    public BinaryMappingState getRandomState(double[] interval, int dimension, int bits,int randomize, RandomDistribution randomDistribution)
     {
-        return new BinaryState(getRandomVector(interval, dimension,randomize),bits, interval);
+        return new BinaryMappingState(getRandomVector(interval, dimension,randomize),bits, interval,randomDistribution);
     }
 
-    public BinaryState optimize()
+    public BinaryMappingState optimize()
     {
         for(int i = 0; i < iterations; i ++)
         {
             
-            BinaryState binaryState = getRandomState(interval,dimension,representationalBits,hilo);
-            double currentStateValue = evalFunction.evalSoution(binaryState.getRealValue()); 
+            BinaryMappingState binaryMappingState = getRandomState(interval,dimension,representationalBits,hilo,globalBinaryMappingState.getRandomDistribution());
+            double currentStateValue = evalFunction.evalSoution(binaryMappingState.getRealValue()); 
             StringBuilder vector = new StringBuilder("(");
-            for(double xi : binaryState.getRealValue())
+            for(double xi : binaryMappingState.getRealValue())
                 vector.append(xi).append(" ");
             vector.append(")");
             
@@ -176,12 +177,12 @@ public class RandomOptimization implements Runnable
             if(currentStateValue < minValue)
             {
                 globalParams.replace(MINIMUN_VALUE, currentStateValue);
-                globalBinaryState = binaryState;
+                globalBinaryMappingState = binaryMappingState;
                 minValue = currentStateValue;
                 FileManager fileManager = new FileManager();
                 String fileName = OUTPUT_FILE_NAME;
                 long fileIndex = fileManager.openFile(fileName,true);
-                fileManager.writeFile(fileIndex,"Function: "+ evalFunction.getFunctionName() + ", Thread: "+ hilo + ",Iteration: " + i + ",Vector: " + vector  + ",Value: " + minValue + "\n",false);
+                fileManager.writeFile(fileIndex,"Function: "+ evalFunction.getFunctionName() + ", Thread: "+ hilo + ",Iteration: " + i + ",Vector: " + vector  + ",Value: " + minValue + "\n",true);
             }
             else if(currentStateValue > maxValue)
             {
@@ -190,14 +191,14 @@ public class RandomOptimization implements Runnable
 
         }
 
-        return globalBinaryState;
+        return globalBinaryMappingState;
     }
 
     @Override
     public void run() {
         
         optimize();
-        ((ArrayList<Integer>)(globalParams.get(FINALIZED_THREADS))).add(hilo);
+        ((boolean[])(globalParams.get(FINALIZED_THREADS)))[hilo-1] = true;
     }
 
     public static String runEvaluationProcess(EvalFunction evalFunction, int dimension, double[] interval, int representationalBits, long iterations, boolean appendFile, Map<String,Object> globalParams)
@@ -208,11 +209,11 @@ public class RandomOptimization implements Runnable
         fileManager.writeFile(fileIndex,(appendFile ? "\n" : "") + "Tracking for " + evalFunction.getFunctionName() + "\n",appendFile);
 
         RandomOptimization optimumRandomOptimization = new RandomOptimization(evalFunction, interval, iterations, representationalBits,dimension);
-        BinaryState optimuBinaryState = optimumRandomOptimization.getRandomState(interval, dimension, representationalBits,0);
-        optimumRandomOptimization.setGlobalBinaryState(optimuBinaryState);
+        BinaryMappingState optimuBinaryMappingState = optimumRandomOptimization.getRandomState(interval, dimension, representationalBits,0,new NormalRandomDistribution(new double[]{0,1}));
+        optimumRandomOptimization.setGlobalBinaryMappingState(optimuBinaryMappingState);
 
         
-        double initValue = evalFunction.evalSoution(optimuBinaryState.getRealValue());
+        double initValue = evalFunction.evalSoution(optimuBinaryMappingState.getRealValue());
         globalParams.replace(MAXIMUN_VALUE, initValue);
         globalParams.replace(MINIMUN_VALUE, initValue);
         globalParams.replace(MEAN_VALUE, initValue);
@@ -221,29 +222,21 @@ public class RandomOptimization implements Runnable
 
         for(int k = 1; k < TOTAL_THREADS + 1; k++)
         {
-            RandomOptimization randomOptimization = new RandomOptimization(evalFunction, interval, iterations, representationalBits,optimuBinaryState,dimension,k);
+            RandomOptimization randomOptimization = new RandomOptimization(evalFunction, interval, iterations, representationalBits,optimuBinaryMappingState,dimension,k);
             randomOptimization.setGlobalParams(globalParams);
             new Thread(randomOptimization).start();
         }
 
-        /* El indicador de progreso se debe optimizar debido a que existen casos donde uno o más hilos incrementan el contador al mismo tiempo
-         * y no toman el valor mas actualizado de contador global.
-         *
-         * double currentProgres = ((Double)globalParams.get(PROGRESS_INDICATOR))/(totalThreads*iterations);
-         * double currentIndicator = 0.05;
-         * while(currentProgres < 1)
-         * {
-         *    if(currentProgres > currentIndicator)
-         *   {
-         *         System.out.println("====== Progreso: " + Math.round(currentProgres*10000)/100 + " ======");
-         *         currentIndicator += 0.05;
-         *     }   
-         *     currentProgres  = ((Double)globalParams.get(PROGRESS_INDICATOR))/(totalThreads*iterations);
-         * }
-         */
-
-        while(((ArrayList<Integer>)globalParams.get(FINALIZED_THREADS)).size() < TOTAL_THREADS);
-
+        boolean allThreads = false;
+        while(!allThreads)
+        {
+            boolean currentAll = true;
+            for(boolean threadFinished : (boolean[])globalParams.get(FINALIZED_THREADS))
+            {
+                currentAll = currentAll&&threadFinished;
+            }
+            allThreads = currentAll;
+        }
         long finalTime = new Date().getTime();
 
         long deltatime = finalTime - initTime;
@@ -253,15 +246,53 @@ public class RandomOptimization implements Runnable
         .append("Best value: " + globalParams.get(MINIMUN_VALUE) + "\n")
         .append("Avg value: " + globalParams.get(MEAN_VALUE) + "\n")
         .append("Worst value: " + globalParams.get(MAXIMUN_VALUE) + "\n");
-        
         return endMessage.toString();
+    }
+
+    public static void resetGlobalMap(Map<String,Object> globalMap)
+    {
+        if(!globalMap.containsKey(MAXIMUN_VALUE))
+            globalMap.put(MAXIMUN_VALUE,0.0);
+        else
+            globalMap.replace(MAXIMUN_VALUE, 0.0);
+
+        
+        if(!globalMap.containsKey(MINIMUN_VALUE))
+            globalMap.put(MINIMUN_VALUE,0.0);
+        else
+            globalMap.replace(MINIMUN_VALUE, 0.0);
+
+
+        if(!globalMap.containsKey(MEAN_VALUE))
+            globalMap.put(MEAN_VALUE,0.0);
+        else
+            globalMap.replace(MEAN_VALUE, 0.0);
+
+
+        if(!globalMap.containsKey(TOTAL_ITERATIONS))
+            globalMap.put(TOTAL_ITERATIONS,0);
+        else
+            globalMap.replace(TOTAL_ITERATIONS, 0);
+
+
+        if(!globalMap.containsKey(PROGRESS_INDICATOR))
+            globalMap.put(PROGRESS_INDICATOR,0.0);
+        else
+            globalMap.replace(PROGRESS_INDICATOR, 0.0);
+
+
+        if(!globalMap.containsKey(FINALIZED_THREADS))
+            globalMap.put(FINALIZED_THREADS,new boolean[TOTAL_THREADS]);
+        else
+            globalMap.replace(FINALIZED_THREADS, new boolean[TOTAL_THREADS]);
+
     }
 
     public static void main(String[] args) {
         
         int dimension = 3;
         int representationalBits = 64;
-        long iterations = 10000000;
+        long iterations = 10000;
 
         Map<String,Object> globalParams = new HashMap<>();
 
@@ -269,68 +300,35 @@ public class RandomOptimization implements Runnable
         
         String results = "";
         
-        globalParams.put(FINALIZED_THREADS,new ArrayList<>(TOTAL_THREADS));
-        globalParams.put(MAXIMUN_VALUE,0.0);
-        globalParams.put(MINIMUN_VALUE,0.0);
-        globalParams.put(MEAN_VALUE,0.0);
-        globalParams.put(TOTAL_ITERATIONS,0);
-        globalParams.put(PROGRESS_INDICATOR,0.0);
-
-
+        RandomOptimization.resetGlobalMap(globalParams);
         EvalFunction evalFunction = new SphereFunction();
         double[] interval = new double[]{-5.12,5.12};
         results = results + RandomOptimization.runEvaluationProcess(evalFunction, dimension, interval, representationalBits, iterations,false,globalParams);
 
-        globalParams.replace(FINALIZED_THREADS,new ArrayList<>(TOTAL_THREADS));
-        globalParams.replace(MAXIMUN_VALUE,0.0);
-        globalParams.replace(MINIMUN_VALUE,0.0);
-        globalParams.replace(MEAN_VALUE,0.0);
-        globalParams.replace(TOTAL_ITERATIONS,0);
-        globalParams.replace(PROGRESS_INDICATOR,0.0);
+        RandomOptimization.resetGlobalMap(globalParams);
         evalFunction = new AckleyFunction();
         interval = new double[]{-30,30};
         results = results + "\n" + RandomOptimization.runEvaluationProcess(evalFunction, dimension, interval, representationalBits, iterations,true,globalParams);
 
 
-        globalParams.replace(FINALIZED_THREADS,new ArrayList<>(TOTAL_THREADS));
-        globalParams.replace(MAXIMUN_VALUE,0.0);
-        globalParams.replace(MINIMUN_VALUE,0.0);
-        globalParams.replace(MEAN_VALUE,0.0);
-        globalParams.replace(TOTAL_ITERATIONS,0);
-        globalParams.replace(PROGRESS_INDICATOR,0.0);
+        RandomOptimization.resetGlobalMap(globalParams);
         evalFunction = new GriewankFunction();
         interval = new double[]{-600,600};
         results = results + "\n" + RandomOptimization.runEvaluationProcess(evalFunction, dimension, interval, representationalBits, iterations,true,globalParams);
 
-        globalParams.replace(FINALIZED_THREADS,new ArrayList<>(TOTAL_THREADS));
-        globalParams.replace(MAXIMUN_VALUE,0.0);
-        globalParams.replace(MINIMUN_VALUE,0.0);
-        globalParams.replace(MEAN_VALUE,0.0);
-        globalParams.replace(TOTAL_ITERATIONS,0);
-        globalParams.replace(PROGRESS_INDICATOR,0.0);
+        RandomOptimization.resetGlobalMap(globalParams);
         evalFunction = new ThenthPowerFunction();
         interval = new double[]{-5.12,5.12};
         results = results + "\n" + RandomOptimization.runEvaluationProcess(evalFunction, dimension, interval, representationalBits, iterations,true,globalParams);
 
 
-
-        globalParams.replace(FINALIZED_THREADS,new ArrayList<>(TOTAL_THREADS));
-        globalParams.replace(MAXIMUN_VALUE,0.0);
-        globalParams.replace(MINIMUN_VALUE,0.0);
-        globalParams.replace(MEAN_VALUE,0.0);
-        globalParams.replace(TOTAL_ITERATIONS,0);
-        globalParams.replace(PROGRESS_INDICATOR,0.0);
+        RandomOptimization.resetGlobalMap(globalParams);
         evalFunction = new RastriginFunction();
         interval = new double[]{-5.12,5.12};
         results = results + "\n" + RandomOptimization.runEvaluationProcess(evalFunction, dimension, interval, representationalBits, iterations,true,globalParams);
 
 
-        globalParams.replace(FINALIZED_THREADS,new ArrayList<>(TOTAL_THREADS));
-        globalParams.replace(MAXIMUN_VALUE,0.0);
-        globalParams.replace(MINIMUN_VALUE,0.0);
-        globalParams.replace(MEAN_VALUE,0.0);
-        globalParams.replace(TOTAL_ITERATIONS,0);
-        globalParams.replace(PROGRESS_INDICATOR,0.0);
+        RandomOptimization.resetGlobalMap(globalParams);
         evalFunction = new RosenbrockFunction();
         interval = new double[]{-2.048,2.048};
         results = results + "\n" + RandomOptimization.runEvaluationProcess(evalFunction, dimension, interval, representationalBits, iterations,true,globalParams);
