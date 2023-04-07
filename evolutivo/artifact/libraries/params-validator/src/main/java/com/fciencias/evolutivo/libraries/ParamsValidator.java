@@ -36,7 +36,7 @@ public class ParamsValidator
     }
 
     public static String getFileOutput() {
-        return fileIntput;
+        return fileOutput;
     }
 
     public static int getThreads() {
@@ -88,7 +88,7 @@ public class ParamsValidator
                 .append("\t-i: Numero de iteraciones de la busqueda\n")
                 .append("\t-t: Numero de hilos\n")
                 .append("\t-f: Archivo de entrada\n")
-                .append("\t-t: Archivo de salida\n");
+                .append("\t-fo: Archivo de salida\n");
                 
                 throw new InvalidParameterException(exceptionMessage.toString());
             }
