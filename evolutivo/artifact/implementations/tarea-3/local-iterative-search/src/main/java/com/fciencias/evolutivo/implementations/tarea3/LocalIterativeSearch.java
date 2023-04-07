@@ -19,7 +19,6 @@ public class LocalIterativeSearch
 {
     private Optimizator optimizator;
     private long iterations;
-    private String fileOutput;
     private BinaryRepresentation initialSolution;
     private BinaryRepresentation solution;
     private double solutionEvaluation;
@@ -30,9 +29,8 @@ public class LocalIterativeSearch
 
     
 
-    public LocalIterativeSearch(Optimizator optimizator, long iterations, String fileOutput, boolean optimizationDirection) 
+    public LocalIterativeSearch(Optimizator optimizator, long iterations, boolean optimizationDirection) 
     {
-        this.fileOutput = fileOutput;
         this.optimizator = optimizator;
         this.iterations = iterations;
         this.optimizationDirection = optimizationDirection;
@@ -73,7 +71,6 @@ public class LocalIterativeSearch
 
         while(!finishCondition(noIterations++))
         {
-            optimizator.setInitialState(solution);
             BinaryRepresentation disturbSolution = solution.getRandomState(1, solution.getRealValue());
             optimizator.setInitialState(disturbSolution);
             long deltaTime = optimizator.startMultiThreadOptimization(false, true);
@@ -129,7 +126,7 @@ public class LocalIterativeSearch
         recocidoSimulado.setGlobalParams(globalParams);
         recocidoSimulado.setOutputPath("outputs/tarea3/ILS/" + fileOutput);
         recocidoSimulado.resetGlobalParams();
-        LocalIterativeSearch localIterativeSearch = new LocalIterativeSearch(recocidoSimulado, iterations, fileOutput,true);
+        LocalIterativeSearch localIterativeSearch = new LocalIterativeSearch(recocidoSimulado, iterations,true);
         localIterativeSearch.runIterativeLocalSearch();
 
         StringBuilder resultLog = new StringBuilder("\nResumen de ejecucion: \n");
