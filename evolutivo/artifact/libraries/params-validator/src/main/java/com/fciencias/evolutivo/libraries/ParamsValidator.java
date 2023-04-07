@@ -15,6 +15,7 @@ public class ParamsValidator
     static long iterations = 100;
     static int threads = 25;
     static String fileIntput= "";
+    static String fileOutput= "";
 
     
 
@@ -31,6 +32,10 @@ public class ParamsValidator
     }
 
     public static String getFileIntput() {
+        return fileIntput;
+    }
+
+    public static String getFileOutput() {
         return fileIntput;
     }
 
@@ -62,6 +67,11 @@ public class ParamsValidator
                 fileIntput = params[i+1];
                 i++;
             }
+            else if(params[i].equals("-fo"))
+            {
+                fileOutput = params[i+1];
+                i++;
+            }
             else if(params[i].equals("-t"))
             {
                 threads = Integer.parseInt(params[i+1]);
@@ -76,7 +86,9 @@ public class ParamsValidator
                 .append("\t-d: Dimension del espacio de busqueda\n")
                 .append("\t-b: Logitud de bits de representacion binaria\n")
                 .append("\t-i: Numero de iteraciones de la busqueda\n")
-                .append("\t-t: Numero de hilos\n");
+                .append("\t-t: Numero de hilos\n")
+                .append("\t-f: Archivo de entrada\n")
+                .append("\t-t: Archivo de salida\n");
                 
                 throw new InvalidParameterException(exceptionMessage.toString());
             }

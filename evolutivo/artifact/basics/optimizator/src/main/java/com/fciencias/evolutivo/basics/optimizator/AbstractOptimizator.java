@@ -1,6 +1,7 @@
 package com.fciencias.evolutivo.basics.optimizator;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 import com.fciencias.evolutivo.basics.RandomDistribution;
@@ -38,6 +39,12 @@ public abstract class AbstractOptimizator implements Optimizator, Runnable
 
     protected int totalThreads = 32;
 
+    protected String inputPath;
+
+    protected String outputPath;
+
+    
+
     protected static final String FINALIZED_THREADS = "Finalized threads";
     
     protected static final String MINIMUN_VALUE = "Min value";
@@ -48,7 +55,7 @@ public abstract class AbstractOptimizator implements Optimizator, Runnable
 
     protected static final String TOTAL_ITERATIONS = "Total iterations";
 
-    protected static final String OUTPUT_FILE_NAME = "evaluationTracking.txt";
+    protected static final String OUTPUT_FILE_PATH = "outputs/";
 
     protected static final String PROGRESS_INDICATOR = "progress indicator";
 
@@ -57,7 +64,6 @@ public abstract class AbstractOptimizator implements Optimizator, Runnable
     protected AbstractOptimizator()
     {
         this.evalFunction = new SphereFunction();
-        this.interval = new double[]{0,1};
         this.iterations = 1000;
         this.representationalBits = 8;
         this.dimension = 3;
@@ -65,30 +71,32 @@ public abstract class AbstractOptimizator implements Optimizator, Runnable
         fileManager = new FileManager();
     }
 
-    protected AbstractOptimizator(EvalFunction evalFunction, double[] interval, long iterations, int representationalBits, int dimension, Map<String,Object> globalParams, int hilo) {
+    protected AbstractOptimizator(EvalFunction evalFunction, long iterations, int representationalBits, int dimension, int hilo) {
         this.evalFunction = evalFunction;
-        this.interval = interval;
         this.iterations = iterations;
         this.representationalBits = representationalBits;
         this.dimension = dimension;
-        this.globalParams = globalParams;
         this.hilo = hilo;
+        this.globalParams = new HashMap<>();
         resetGlobalParams();
         initOptimizator();
         fileManager = new FileManager();
     }
 
-    protected AbstractOptimizator(EvalFunction evalFunction, double[] interval, long iterations, int representationalBits, int dimension, Map<String,Object> globalParams, BinaryRepresentation globalBinaryRepresentationState, int hilo) {
+    protected AbstractOptimizator(EvalFunction evalFunction, long iterations, int representationalBits, int dimension, BinaryRepresentation globalBinaryRepresentationState, int hilo) {
         this.evalFunction = evalFunction;
-        this.interval = interval;
         this.iterations = iterations;
         this.representationalBits = representationalBits;
         this.dimension = dimension;
-        this.globalParams = globalParams;
         this.globalBinaryRepresentationState = globalBinaryRepresentationState;
         this.hilo = hilo;
+        this.globalParams = new HashMap<>();
         resetGlobalParams();
         bestValue = evalFunction.evalSoution(globalBinaryRepresentationState.getRealValue());
+        
+        globalParams.replace(OPTIMUM_OBJECT, globalBinaryRepresentationState);
+        globalParams.replace(MAXIMUN_VALUE, bestValue);
+        
         fileManager = new FileManager();
         
     }
@@ -107,12 +115,78 @@ public abstract class AbstractOptimizator implements Optimizator, Runnable
     {
         return globalBinaryRepresentationState;
     }
+    
+    public void setGlobalParams(Map<String,Object> globalParams)
+    {
+        this.globalParams = globalParams;
+    }
 
     public int getTotalThreads() {
         return totalThreads;
     }
 
-    
+    public long getIterations()
+    {
+        return  (long)(globalParams.get(TOTAL_ITERATIONS));
+    }
+
+    public void setIterations(long iterations)
+    {
+        globalParams.replace(TOTAL_ITERATIONS,iterations);
+    }
+
+    public void setInitialState(BinaryRepresentation initialState)
+    {
+        if(isValidState(initialState))
+        {
+            globalBinaryRepresentationState = initialState;
+            bestValue = evalFunction.evalSoution(initialState.getRealValue());
+            globalParams.replace(OPTIMUM_OBJECT, initialState);
+            globalParams.replace(MAXIMUN_VALUE, bestValue);
+        }
+        
+    }
+
+    public BinaryRepresentation disturbState(double disturbRate)
+    {
+        BinaryRepresentation currentSolution = (BinaryRepresentation)globalParams.get(OPTIMUM_OBJECT);
+        BinaryRepresentation distSolution;
+        do
+            distSolution = currentSolution.getRandomState(currentSolution.getRepresentationalBits()*disturbRate, currentSolution.getRealValue());
+        while(!isValidState(distSolution));
+        return distSolution;
+    }
+
+    public BinaryRepresentation disturbState(int disturbBits)
+    {
+        BinaryRepresentation currentSolution = (BinaryRepresentation)globalParams.get(OPTIMUM_OBJECT);
+        BinaryRepresentation distSolution;
+        do
+            distSolution = currentSolution.getRandomState(disturbBits, currentSolution.getRealValue());
+        while(!isValidState(distSolution));
+        return distSolution;
+    }
+
+    public void resetMetaParams()
+    {
+        globalParams.replace(TOTAL_ITERATIONS,0L);
+    }
+
+    public String getInputPath() {
+        return inputPath;
+    }
+
+    public void setInputPath(String inputPath) {
+        this.inputPath = inputPath;
+    }
+
+    public String getOutputPath() {
+        return outputPath;
+    }
+
+    public void setOutputPath(String outputPath) {
+        this.outputPath = outputPath;
+    }
 
     public void setTotalThreads(int totalThreads) {
         this.totalThreads = totalThreads;
@@ -131,6 +205,12 @@ public abstract class AbstractOptimizator implements Optimizator, Runnable
     }
 
 
+    @Override
+    public boolean compareStates(BinaryRepresentation state1, BinaryRepresentation state2) {
+        double valuation1 = evalFunction.evalSoution(state1.getRealValue());
+        double valuation2 = evalFunction.evalSoution(state2.getRealValue());
+        return ( (optimizeDirection && (valuation1 > valuation2)) || (!optimizeDirection && (valuation1 < valuation2)) );
+    }
     
 
     protected abstract BinaryRepresentation cheapSolution();
@@ -151,9 +231,8 @@ public abstract class AbstractOptimizator implements Optimizator, Runnable
                     globalParams.replace(OPTIMUM_OBJECT, element);
                     if(logTrack)
                     {
-                        String fileName = OUTPUT_FILE_NAME;
-                        long fileIndex = fileManager.openFile(fileName,true);
-                        fileManager.writeFile(fileIndex,"Function: "+ evalFunction.getFunctionName() + ", Thread: "+ hilo + ",Iteration: " + globalParams.get(TOTAL_ITERATIONS) + ",Vector: " + globalBinaryRepresentationState.printRealValue()  + ",Value: " + bestValue + "\n",true);
+                        long fileIndex = fileManager.openFile(outputPath + "_log.txt",true);
+                        fileManager.writeFile(fileIndex,"Function: "+ evalFunction.getFunctionName() + ", Thread: "+ hilo + ", Iteration: " + globalParams.get(TOTAL_ITERATIONS) + ", Vector: " + globalBinaryRepresentationState.printRealValue()  + ", Value: " + bestValue + "\n",true);
                     }
                     
                 }
@@ -215,14 +294,18 @@ public abstract class AbstractOptimizator implements Optimizator, Runnable
     @Override
     public long startMultiThreadOptimization(boolean appendFile, boolean logTrack)
     {
-        long fileIndex = fileManager.openFile(OUTPUT_FILE_NAME,appendFile);
+        long fileIndex = fileManager.openFile(outputPath + "_log.txt",appendFile);
+
+        long fileImproveReg = fileManager.openFile(outputPath + "_RC_ImproveState.txt",appendFile);
+        fileManager.closeFile(fileImproveReg);
+
         fileManager.writeFile(fileIndex,(appendFile ? "\n" : "") + "Tracking for " + evalFunction.getFunctionName() + "\n",appendFile);
 
         globalParams.replace(MAXIMUN_VALUE, bestValue);
         globalParams.replace(MINIMUN_VALUE, bestValue);
         globalParams.replace(MEAN_VALUE, bestValue);
         long initTime = new Date().getTime();
-
+        
         for(int k = 1; k < totalThreads + 1; k++)
         {
             new Thread(createOptimizator(k,logTrack)).start();
@@ -322,6 +405,17 @@ public abstract class AbstractOptimizator implements Optimizator, Runnable
         this.logTrack = logTrack;
     }
 
+    @Override
+    public BinaryRepresentation getOptimumState()
+    {
+        return (BinaryRepresentation)globalParams.get(OPTIMUM_OBJECT);
+    }
+
+    @Override
+    public double getOptimumValuation()
+    {
+        return (double)globalParams.get(MAXIMUN_VALUE);
+    }
     
 
 }

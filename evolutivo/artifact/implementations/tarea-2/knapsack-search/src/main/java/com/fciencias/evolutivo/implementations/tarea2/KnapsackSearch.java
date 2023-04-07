@@ -23,14 +23,14 @@ public class KnapsackSearch extends AbstractOptimizator
         this.fileInput = fileInput;
     }
 
-    public KnapsackSearch(EvalFunction evalFunction,long iterations,int representationalBits, int dimension, Map<String,Object> globalParams, int hilo)
+    public KnapsackSearch(EvalFunction evalFunction,long iterations,int representationalBits, int dimension, int hilo)
     {
-        super(evalFunction, new double[]{0,1}, iterations, representationalBits, dimension, globalParams,hilo);
+        super(evalFunction, iterations, representationalBits, dimension,hilo);
     }
 
-    public KnapsackSearch(EvalFunction evalFunction,long iterations,int representationalBits, int dimension, Map<String,Object> globalParams, BinaryRepresentation globalBinaryRepresentationState, int hilo)
+    public KnapsackSearch(EvalFunction evalFunction,long iterations,int representationalBits, int dimension, BinaryRepresentation globalBinaryRepresentationState, int hilo)
     {
-        super(evalFunction, new double[]{0,1}, iterations, representationalBits, dimension, globalParams,globalBinaryRepresentationState,hilo);
+        super(evalFunction, iterations, representationalBits, dimension,globalBinaryRepresentationState,hilo);
     }
 
     public void setMaxCost(double maxCost)
@@ -65,13 +65,6 @@ public class KnapsackSearch extends AbstractOptimizator
     }
 
     @Override
-    public boolean compareStates(BinaryRepresentation state1, BinaryRepresentation state2) {
-        double valuation1 = evalFunction.evalSoution(state1.getRealValue());
-        double valuation2 = evalFunction.evalSoution(state2.getRealValue());
-        return ( (optimizeDirection && (valuation1 > valuation2)) || (!optimizeDirection && (valuation1 < valuation2)) );
-    }
-
-    @Override
     public boolean isMoreOptimunState(BinaryRepresentation state) {
         
         double valuation = evalFunction.evalSoution(state.getRealValue());
@@ -95,8 +88,7 @@ public class KnapsackSearch extends AbstractOptimizator
     @Override
     public AbstractOptimizator createOptimizator(int hilo, boolean logTrack) {
         
-        KnapsackSearch knapsackSearch = new KnapsackSearch(evalFunction, iterations, representationalBits, dimension, globalParams, hilo);
-        knapsackSearch.globalParams.replace(MINIMUN_VALUE, bestValue);
+        KnapsackSearch knapsackSearch = new KnapsackSearch(evalFunction, iterations, representationalBits, dimension, hilo);
         knapsackSearch.setLogTrack(logTrack);
         knapsackSearch.setMaxCost(maxCost);
         knapsackSearch.setGainCalculator(gainCalculator);
@@ -104,6 +96,7 @@ public class KnapsackSearch extends AbstractOptimizator
         knapsackSearch.setFileInput(fileInput);
         knapsackSearch.setTotalThreads(totalThreads);
         knapsackSearch.resetGlobalParams();
+        knapsackSearch.globalParams.replace(MINIMUN_VALUE, bestValue);
         return knapsackSearch;
     }
 
@@ -133,7 +126,7 @@ public class KnapsackSearch extends AbstractOptimizator
         System.out.println("Parametros de ejecucion: ");
         System.out.println("\tIteraciones:  " + iterations);
         Map<String,Object> globalParams = new HashMap<>();
-        KnapsackSearch knapsackSearch = new KnapsackSearch(new DiscreteWeightFunction(w), iterations, touples, touples, globalParams, 0);
+        KnapsackSearch knapsackSearch = new KnapsackSearch(new DiscreteWeightFunction(w), iterations, touples, touples, 0);
         knapsackSearch.setMaxCost(maxCost);
         knapsackSearch.setGainCalculator(new DiscreteWeightFunction(p));
         knapsackSearch.setTotalThreads(totalThreads);
@@ -155,6 +148,12 @@ public class KnapsackSearch extends AbstractOptimizator
             fileManager.writeLine(fileIndex, "Costo: NO EVALUADO");
         fileManager.writeLine(fileIndex, "\nTiempo de ejecucion: " + deltaTime/1000.0 + "s\n\n");
         fileManager.closeFile(fileIndex);
+    }
+
+    @Override
+    public boolean isValidState(BinaryRepresentation state) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'isValidState'");
     }
 
 }

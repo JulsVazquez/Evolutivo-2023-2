@@ -14,7 +14,7 @@ public class NeighborhoodOptimization extends AbstractOptimizator
 
     public NeighborhoodOptimization(EvalFunction evalFunction, double[] interval, long iterations, int representationalBits, int dimension, Map<String,Object> globalParams, int hilo) {
         
-        super(evalFunction, interval, iterations, representationalBits, dimension, globalParams,hilo);
+        super(evalFunction, iterations, representationalBits, dimension,hilo);
     }
 
 
@@ -84,6 +84,13 @@ public class NeighborhoodOptimization extends AbstractOptimizator
     protected BinaryRepresentation cheapSolution() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'cheapSolution'");
+    }
+
+
+    @Override
+    public boolean isValidState(BinaryRepresentation state) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'isValidState'");
     }
 
 
