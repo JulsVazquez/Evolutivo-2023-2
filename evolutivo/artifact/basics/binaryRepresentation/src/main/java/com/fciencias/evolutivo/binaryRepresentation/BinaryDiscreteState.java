@@ -69,10 +69,26 @@ public class BinaryDiscreteState extends AbstractBinaryRepresentation{
         StringBuilder stringState = new StringBuilder(representationalBits*2 + 2).append("[");
         for(int i = 0; i < representationalBits; i++)
         {
-            stringState.append(binaryArray[0][i] ? "1" : "0").append(i == (representationalBits - 1) ? "" : ",");
+            if(binaryArray[0][i])
+                stringState.append(i).append(i == (representationalBits - 1) ? "" : ",");
         }
         stringState.append("]");
         return stringState.toString();
+    }
+
+    @Override
+    public String printRealValue()
+    {
+        StringBuilder stringRealValue = new StringBuilder("(");
+        int i = 0;
+        for(double xi : realValue)
+        {
+            if(xi > 0)
+                stringRealValue.append(i).append(" ");
+            i++;
+        }
+        stringRealValue.append(")");
+        return stringRealValue.toString();
     }
 
     @Override
@@ -120,7 +136,6 @@ public class BinaryDiscreteState extends AbstractBinaryRepresentation{
         while(bitsCounter < randomBits)
         {
             final int bit = (int)(Math.random()*representationalBits);
-
             if(!changedBits.contains(bit))
             {
                 newBinaryArray[bit] = !newBinaryArray[bit];

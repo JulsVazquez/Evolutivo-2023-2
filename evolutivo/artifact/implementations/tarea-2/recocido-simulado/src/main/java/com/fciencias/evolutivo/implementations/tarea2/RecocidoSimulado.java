@@ -32,7 +32,7 @@ public class RecocidoSimulado extends KnapsackSearch
 
     public RecocidoSimulado(EvalFunction evalFunction, long iterations, int representationalBits, int dimension, Map<String, Object> globalParams, int hilo) {
         
-        super(evalFunction, iterations, representationalBits, dimension, globalParams, hilo);
+        super(evalFunction, iterations, representationalBits, dimension, hilo);
         temp = INIT_TEMP;
         alpha = Math.pow(FINISH_TEMP/INIT_TEMP, 2.0/(representationalBits*iterations));
         totalIterations = 0;
@@ -40,7 +40,7 @@ public class RecocidoSimulado extends KnapsackSearch
 
     public RecocidoSimulado(EvalFunction evalFunction, long iterations, int representationalBits, int dimension, Map<String, Object> globalParams, BinaryRepresentation globalBinaryRepresentationState, int hilo) {
         
-        super(evalFunction, iterations, representationalBits, dimension, globalParams, globalBinaryRepresentationState, hilo);
+        super(evalFunction, iterations, representationalBits, dimension, globalBinaryRepresentationState, hilo);
         temp = INIT_TEMP;
         alpha = Math.pow(FINISH_TEMP/INIT_TEMP, 2.0/(representationalBits*iterations));
         totalIterations = 0;

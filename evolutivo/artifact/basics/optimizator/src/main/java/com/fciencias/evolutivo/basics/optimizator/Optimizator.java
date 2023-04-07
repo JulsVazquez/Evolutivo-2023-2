@@ -17,4 +17,24 @@ public interface Optimizator {
 
     public long startMultiThreadOptimization(boolean appendFile, boolean logTrack);
 
+    public boolean isValidState(BinaryRepresentation state);
+
+    public BinaryRepresentation getOptimumState();
+
+    public double getOptimumValuation();
+
+    public void setInitialState(BinaryRepresentation initialState);
+
+    public BinaryRepresentation disturbState(double disturbRate);
+    
+    public BinaryRepresentation disturbState(int disturbBits);
+
+    public long getIterations();
+
+    public void setIterations(long iterations);
+
+    public int getTotalThreads();
+
+    public void resetMetaParams();
+
 }
