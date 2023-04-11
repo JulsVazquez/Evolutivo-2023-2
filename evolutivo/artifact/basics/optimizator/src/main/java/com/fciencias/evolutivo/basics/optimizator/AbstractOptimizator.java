@@ -170,6 +170,7 @@ public abstract class AbstractOptimizator implements Optimizator, Runnable
     public void resetMetaParams()
     {
         globalParams.replace(TOTAL_ITERATIONS,0L);
+        globalParams.replace(FINALIZED_THREADS, new boolean[totalThreads]);
     }
 
     public String getInputPath() {
@@ -254,40 +255,44 @@ public abstract class AbstractOptimizator implements Optimizator, Runnable
         
         double valuation = evalFunction.evalSoution(state.getRealValue());
         boolean isMoreOptimun = false;
-        if(optimizeDirection)
+        if(isValidState(state))
         {
-            
-            if(valuation > (double)globalParams.get(MAXIMUN_VALUE))
+            if(optimizeDirection)
             {
-                globalParams.replace(MAXIMUN_VALUE, valuation);
-                bestValue = valuation;
-                isMoreOptimun = true;
                 
-                maximumValue = valuation;
+                if(valuation > (double)globalParams.get(MAXIMUN_VALUE))
+                {
+                    globalParams.replace(MAXIMUN_VALUE, valuation);
+                    bestValue = valuation;
+                    isMoreOptimun = true;
+                    
+                    maximumValue = valuation;
 
+                }
+                else if(valuation < (double)globalParams.get(MINIMUN_VALUE))
+                {
+                    globalParams.replace(MINIMUN_VALUE, valuation);
+                    minimumValue = valuation;
+                }
             }
-            else if(valuation < (double)globalParams.get(MINIMUN_VALUE))
+            else
             {
-                globalParams.replace(MINIMUN_VALUE, valuation);
-                minimumValue = valuation;
+                if(valuation > (double)globalParams.get(MAXIMUN_VALUE))
+                {
+                    globalParams.replace(MAXIMUN_VALUE, valuation);
+                    maximumValue = valuation;
+
+                }
+                else if(valuation < (double)globalParams.get(MINIMUN_VALUE))
+                {
+                    globalParams.replace(MINIMUN_VALUE, valuation);
+                    bestValue = valuation;
+                    isMoreOptimun = true;
+                    minimumValue = valuation;
+                }
             }
         }
-        else
-        {
-            if(valuation > (double)globalParams.get(MAXIMUN_VALUE))
-            {
-                globalParams.replace(MAXIMUN_VALUE, valuation);
-                maximumValue = valuation;
-
-            }
-            else if(valuation < (double)globalParams.get(MINIMUN_VALUE))
-            {
-                globalParams.replace(MINIMUN_VALUE, valuation);
-                bestValue = valuation;
-                isMoreOptimun = true;
-                minimumValue = valuation;
-            }
-        }
+            
         return isMoreOptimun;
     }
 

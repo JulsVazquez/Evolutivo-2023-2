@@ -18,5 +18,7 @@ public interface BinaryRepresentation {
     
     public BinaryRepresentation getRandomState(double radius, double[] mu);
 
+    public BinaryRepresentation getRandomState(double radius);
+
     public String printRealValue();
 }

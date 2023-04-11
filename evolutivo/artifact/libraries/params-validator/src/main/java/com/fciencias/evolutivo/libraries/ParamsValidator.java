@@ -13,6 +13,7 @@ public class ParamsValidator
     static int dimension = 3;
     static int representationalBits = 64;
     static long iterations = 100;
+    static long heuristicIterations = 100;
     static int threads = 25;
     static String fileIntput= "";
     static String fileOutput= "";
@@ -29,6 +30,10 @@ public class ParamsValidator
 
     public static long getIterations() {
         return iterations;
+    }
+
+    public static long getHeuristicIterations() {
+        return heuristicIterations;
     }
 
     public static String getFileIntput() {
@@ -62,6 +67,11 @@ public class ParamsValidator
                 iterations = Integer.parseInt(params[i+1]);
                 i++;
             }
+            else if(params[i].equals("-ih"))
+            {
+                heuristicIterations = Integer.parseInt(params[i+1]);
+                i++;
+            }
             else if(params[i].equals("-f"))
             {
                 fileIntput = params[i+1];
@@ -86,6 +96,7 @@ public class ParamsValidator
                 .append("\t-d: Dimension del espacio de busqueda\n")
                 .append("\t-b: Logitud de bits de representacion binaria\n")
                 .append("\t-i: Numero de iteraciones de la busqueda\n")
+                .append("\t-ih: Numero de iteraciones de la metaheuristica\n")
                 .append("\t-t: Numero de hilos\n")
                 .append("\t-f: Archivo de entrada\n")
                 .append("\t-fo: Archivo de salida\n");

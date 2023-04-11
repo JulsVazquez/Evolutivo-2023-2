@@ -3,19 +3,18 @@ package com.fciencias.evolutivo.basics.optimizator;
 import com.fciencias.evolutivo.binaryRepresentation.*;
 import com.fciencias.evolutivo.evalFunctions.EvalFunction;
 
-public class RecocidoSimuladoDiscreto extends RecocidoSimulado{
-
+public class KnapSackSimulatedAnnealingOptimizator extends RecocidoSimulado{
+    
     protected double maxCost;
     protected EvalFunction weightCalculator;
-    protected String fileInput;
 
-    public RecocidoSimuladoDiscreto(EvalFunction evalFunction, long iterations, int representationalBits,int dimension, int hilo) {
+    public KnapSackSimulatedAnnealingOptimizator(EvalFunction evalFunction, long iterations, int representationalBits,int dimension, int hilo) {
 
         super(evalFunction, iterations, representationalBits, dimension, hilo);
         optimizeToMax();
     }
 
-    public RecocidoSimuladoDiscreto(EvalFunction evalFunction, long iterations, int representationalBits,int dimension, BinaryRepresentation globalBinaryRepresentationState, int hilo) {
+    public KnapSackSimulatedAnnealingOptimizator(EvalFunction evalFunction, long iterations, int representationalBits,int dimension, BinaryRepresentation globalBinaryRepresentationState, int hilo) {
 
         super(evalFunction, iterations, representationalBits, dimension, globalBinaryRepresentationState,hilo);
         optimizeToMax();
@@ -67,18 +66,17 @@ public class RecocidoSimuladoDiscreto extends RecocidoSimulado{
     @Override
     public AbstractOptimizator createOptimizator(int hilo, boolean logTrack) {
 
-        RecocidoSimuladoDiscreto recocidoSimulado = new RecocidoSimuladoDiscreto(evalFunction, iterations, representationalBits, dimension, globalBinaryRepresentationState, hilo);
-        recocidoSimulado.setLogTrack(logTrack);
-        recocidoSimulado.setMaxCost(maxCost);
-        recocidoSimulado.setWeightCalculator(weightCalculator);
-        recocidoSimulado.setTotalThreads(totalThreads);
-        recocidoSimulado.setOutputPath(outputPath);
-        recocidoSimulado.setGlobalParams(globalParams);
-        recocidoSimulado.bestValue = bestValue;
-        recocidoSimulado.globalParams.replace(MINIMUN_VALUE, bestValue);
-        recocidoSimulado.globalParams.replace(MAXIMUN_VALUE, bestValue);
-        recocidoSimulado.globalParams.put(TEMPERATURA, temp);
-        return recocidoSimulado;
+        KnapSackSimulatedAnnealingOptimizator knapsackOptimizator = new KnapSackSimulatedAnnealingOptimizator(evalFunction, iterations, representationalBits, dimension, globalBinaryRepresentationState, hilo);
+        knapsackOptimizator.setLogTrack(logTrack);
+        knapsackOptimizator.setMaxCost(maxCost);
+        knapsackOptimizator.setWeightCalculator(weightCalculator);
+        knapsackOptimizator.setTotalThreads(totalThreads);
+        knapsackOptimizator.setOutputPath(outputPath);
+        knapsackOptimizator.setGlobalParams(globalParams);
+        knapsackOptimizator.bestValue = bestValue;
+        knapsackOptimizator.globalParams.replace(MINIMUN_VALUE, bestValue);
+        knapsackOptimizator.globalParams.replace(MAXIMUN_VALUE, bestValue);
+        knapsackOptimizator.globalParams.put(TEMPERATURA, temp);
+        return knapsackOptimizator;
     }
-    
 }

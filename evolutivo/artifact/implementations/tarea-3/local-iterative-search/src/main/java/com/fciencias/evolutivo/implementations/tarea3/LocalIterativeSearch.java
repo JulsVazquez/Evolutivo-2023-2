@@ -71,8 +71,9 @@ public class LocalIterativeSearch
 
         while(!finishCondition(noIterations++))
         {
-            BinaryRepresentation disturbSolution = solution.getRandomState(1, solution.getRealValue());
+            BinaryRepresentation disturbSolution = solution.getRandomState(1);
             optimizator.setInitialState(disturbSolution);
+            optimizator.resetMetaParams();
             long deltaTime = optimizator.startMultiThreadOptimization(false, true);
             totalExecutionTime += deltaTime*1.0;
             BinaryRepresentation newOptimumSolution = optimizator.getOptimumState();
@@ -81,7 +82,7 @@ public class LocalIterativeSearch
             {
                 solution = newOptimumSolution;
                 solutionEvaluation = disturbValue;
-            }            
+            }          
         }
         totalExecutionTime = totalExecutionTime/1000.0;
         
@@ -95,6 +96,7 @@ public class LocalIterativeSearch
     {
         ParamsValidator.validate(args);
         long iterations = ParamsValidator.getIterations();
+        long heuristicIterations = ParamsValidator.getHeuristicIterations();
         int totalThreads = ParamsValidator.getThreads();
         String fileInput = ParamsValidator.getFileIntput();
         String fileOutput = ParamsValidator.getFileOutput();
@@ -119,19 +121,22 @@ public class LocalIterativeSearch
         double maxCost = Double.parseDouble(fileManager.readFileLine(fileIndex, touples + 1));
         Map<String,Object> globalParams = new HashMap<>();
         globalParams.put("TEMP", 50.0);
-        RecocidoSimuladoDiscreto recocidoSimulado = new RecocidoSimuladoDiscreto(new DiscreteWeightFunction(p), 10000, touples, touples, 0);
+        KnapSackSimulatedAnnealingOptimizator recocidoSimulado = new KnapSackSimulatedAnnealingOptimizator(new DiscreteWeightFunction(p), heuristicIterations, touples, touples, 0);
+        // KnapSackHighClimbingOptimizator recocidoSimulado = new KnapSackHighClimbingOptimizator(new DiscreteWeightFunction(p), heuristicIterations, touples, touples, 0);
         recocidoSimulado.setWeightCalculator(new DiscreteWeightFunction(w));
         recocidoSimulado.setMaxCost(maxCost);
         recocidoSimulado.setTotalThreads(totalThreads);
         recocidoSimulado.setGlobalParams(globalParams);
         recocidoSimulado.setOutputPath("outputs/tarea3/ILS/" + fileOutput);
         recocidoSimulado.resetGlobalParams();
+
         LocalIterativeSearch localIterativeSearch = new LocalIterativeSearch(recocidoSimulado, iterations,true);
         localIterativeSearch.runIterativeLocalSearch();
-
+        
         StringBuilder resultLog = new StringBuilder("\nResumen de ejecucion: \n");
         resultLog.append("\nEstado Inicial: " + localIterativeSearch.getInitialSolution())
         .append("\nResultado Optimo: " + localIterativeSearch.getSolution())
+        .append("\nCosto total: " + new DiscreteWeightFunction(w).evalSoution(localIterativeSearch.getSolution().getRealValue()))
         .append("\nValor Optimo: " + localIterativeSearch.getSolutionEvaluation())
         .append("\nTiempo de ejecucion: " + localIterativeSearch.getTotalExecutionTime() + "s");
 
