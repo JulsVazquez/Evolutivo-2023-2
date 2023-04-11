@@ -3,7 +3,7 @@ package com.fciencias.evolutivo.implementations.tarea3;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.fciencias.evolutivo.basics.optimizator.RecocidoSimuladoDiscreto;
+import com.fciencias.evolutivo.basics.optimizator.KnapSackSimulatedAnnealingOptimizator;
 import com.fciencias.evolutivo.evalFunctions.DiscreteWeightFunction;
 import com.fciencias.evolutivo.libraries.FileManager;
 import com.fciencias.evolutivo.libraries.ParamsValidator;
@@ -49,7 +49,7 @@ public class App
 
         Map<String,Object> globalParams = new HashMap<>();
         globalParams.put("TEMP", 50.0);
-        RecocidoSimuladoDiscreto recocidoSimulado = new RecocidoSimuladoDiscreto(new DiscreteWeightFunction(p), iterations, touples, touples, 0);
+        KnapSackSimulatedAnnealingOptimizator recocidoSimulado = new KnapSackSimulatedAnnealingOptimizator(new DiscreteWeightFunction(p), iterations, touples, touples, 0);
         recocidoSimulado.setWeightCalculator(new DiscreteWeightFunction(w));
         recocidoSimulado.setMaxCost(maxCost);
         recocidoSimulado.setTotalThreads(totalThreads);

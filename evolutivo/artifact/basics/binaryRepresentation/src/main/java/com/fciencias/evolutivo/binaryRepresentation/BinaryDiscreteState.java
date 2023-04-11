@@ -147,5 +147,33 @@ public class BinaryDiscreteState extends AbstractBinaryRepresentation{
         String newBinaryString = arrayToString(newBinaryArray);
         return new BinaryDiscreteState(newBinaryString);
     }
+
+
+    @Override
+    public BinaryRepresentation getRandomState(double radius) {
+        
+        boolean[] newBinaryArray = new boolean[representationalBits];
+        for(int i = 0; i < representationalBits; i++)
+            newBinaryArray[i] = realValue[i]==1;
+
+
+        int randomBits = Math.min((int)(Math.round(radius)) ,representationalBits);
+        List<Integer> changedBits = new ArrayList<>();
+
+        int bitsCounter = 0;
+        while(bitsCounter < randomBits)
+        {
+            final int bit = (int)(Math.random()*representationalBits);
+            if(!changedBits.contains(bit))
+            {
+                newBinaryArray[bit] = !newBinaryArray[bit];
+                changedBits.add(bit);
+                bitsCounter++;
+            }
+        }
+        
+        String newBinaryString = arrayToString(newBinaryArray);
+        return new BinaryDiscreteState(newBinaryString);
+    }
     
 }

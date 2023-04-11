@@ -107,6 +107,18 @@ public class BinaryMappingState extends AbstractBinaryRepresentation{
     }
 
     @Override
+    public BinaryRepresentation getRandomState(double radius) {
+        
+        int dimension = realValue.length;
+        double[] newRealValue = new double[dimension];
+        for(int i = 0; i < dimension; i++)
+        {
+            newRealValue[i] = randomDistribution.getRandomValue()*radius/3 + realValue[i];
+        }
+        return new BinaryMappingState(newRealValue, representationalBits, interval,randomDistribution);
+    }
+
+    @Override
     public BinaryRepresentation getRandomState(double radius, double[] mu) {
         
         int dimension = mu.length;
