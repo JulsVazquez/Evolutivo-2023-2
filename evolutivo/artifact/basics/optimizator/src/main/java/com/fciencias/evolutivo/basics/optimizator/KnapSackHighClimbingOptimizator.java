@@ -35,8 +35,10 @@ public class KnapSackHighClimbingOptimizator extends AbstractOptimizator
     public void initOptimizator() {
         
         BinaryDiscreteState binaryDiscreteState = new BinaryDiscreteState(representationalBits);
-        globalBinaryRepresentationState = binaryDiscreteState.getRandomState(1, binaryDiscreteState.getRealValue());
+        globalBinaryRepresentationState = binaryDiscreteState.getRandomState(1);
         bestValue = evalFunction.evalSoution(globalBinaryRepresentationState.getRealValue());
+        globalParams.replace(OPTIMUM_OBJECT, globalBinaryRepresentationState);
+        globalParams.replace(optimizeDirection ?  MAXIMUN_VALUE : MINIMUN_VALUE, bestValue);
     }
 
     @Override

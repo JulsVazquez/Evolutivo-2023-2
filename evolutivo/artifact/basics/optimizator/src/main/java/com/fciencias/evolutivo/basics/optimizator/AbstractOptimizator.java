@@ -228,8 +228,8 @@ public abstract class AbstractOptimizator implements Optimizator, Runnable
                 if(isMoreOptimunState(element))
                 {
                     foundBetter = true;
-                    globalBinaryRepresentationState = element;
                     globalParams.replace(OPTIMUM_OBJECT, element);
+                    globalBinaryRepresentationState = (BinaryRepresentation)globalParams.get(OPTIMUM_OBJECT);
                     if(logTrack)
                     {
                         long fileIndex = fileManager.openFile(outputPath + "_log.txt",true);
@@ -255,6 +255,9 @@ public abstract class AbstractOptimizator implements Optimizator, Runnable
         
         double valuation = evalFunction.evalSoution(state.getRealValue());
         boolean isMoreOptimun = false;
+        long fileIndexOptimLog = fileManager.openFile(outputPath + "_RC_ImproveState.txt", true);
+        long fileIndexOptimTab = fileManager.openFile(outputPath + "_RC_ImproveStateTab.txt", true);
+
         if(isValidState(state))
         {
             if(optimizeDirection)
@@ -262,11 +265,13 @@ public abstract class AbstractOptimizator implements Optimizator, Runnable
                 
                 if(valuation > (double)globalParams.get(MAXIMUN_VALUE))
                 {
+                    Object bestVal = globalParams.get(MAXIMUN_VALUE);
                     globalParams.replace(MAXIMUN_VALUE, valuation);
                     bestValue = valuation;
                     isMoreOptimun = true;
-                    
                     maximumValue = valuation;
+                    fileManager.writeLine(fileIndexOptimTab,globalParams.get(MAXIMUN_VALUE) + "");
+                    fileManager.writeLine(fileIndexOptimLog,globalParams.get(OPTIMUM_OBJECT) + " : " + bestVal + " -> " + state + " : " + globalParams.get(MAXIMUN_VALUE));
 
                 }
                 else if(valuation < (double)globalParams.get(MINIMUN_VALUE))
@@ -289,26 +294,30 @@ public abstract class AbstractOptimizator implements Optimizator, Runnable
                     bestValue = valuation;
                     isMoreOptimun = true;
                     minimumValue = valuation;
+                    fileManager.writeLine(fileIndexOptimLog,globalParams.get(OPTIMUM_OBJECT) + " -> " + state + " : " + globalParams.get(MINIMUN_VALUE));
+                    fileManager.writeLine(fileIndexOptimTab,globalParams.get(MAXIMUN_VALUE) + "");
                 }
             }
         }
-            
+        
         return isMoreOptimun;
     }
 
     @Override
     public long startMultiThreadOptimization(boolean appendFile, boolean logTrack)
     {
-        long fileIndex = fileManager.openFile(outputPath + "_log.txt",appendFile);
-
+        
         long fileImproveReg = fileManager.openFile(outputPath + "_RC_ImproveState.txt",appendFile);
         fileManager.closeFile(fileImproveReg);
 
+        fileImproveReg = fileManager.openFile(outputPath + "_RC_ImproveStateTab.txt",appendFile);
+        fileManager.closeFile(fileImproveReg);
+
+
+        long fileIndex = fileManager.openFile(outputPath + "_log.txt",appendFile);
         fileManager.writeFile(fileIndex,(appendFile ? "\n" : "") + "Tracking for " + evalFunction.getFunctionName() + "\n",appendFile);
 
-        globalParams.replace(MAXIMUN_VALUE, bestValue);
-        globalParams.replace(MINIMUN_VALUE, bestValue);
-        globalParams.replace(MEAN_VALUE, bestValue);
+
         long initTime = new Date().getTime();
         
         for(int k = 1; k < totalThreads + 1; k++)
@@ -345,6 +354,8 @@ public abstract class AbstractOptimizator implements Optimizator, Runnable
                 System.out.println(progressBar + "\n");
             }
         }
+        bestValue = (double)globalParams.get(optimizeDirection ? MAXIMUN_VALUE : MINIMUN_VALUE);
+        globalBinaryRepresentationState = (BinaryRepresentation)globalParams.get(OPTIMUM_OBJECT);
         long finalTime = new Date().getTime();
         return finalTime - initTime;
 
