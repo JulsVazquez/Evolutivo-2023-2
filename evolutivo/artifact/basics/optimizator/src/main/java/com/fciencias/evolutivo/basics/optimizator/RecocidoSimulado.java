@@ -47,6 +47,7 @@ public abstract class RecocidoSimulado extends AbstractOptimizator{
         RandomDistribution heatProbability = new HeatDistribution(new double[]{temp});
         double p = heatProbability.getRandomValue();
         long fileIndexOptimLog = fileManager.openFile(outputPath + "_RC_ImproveState.txt", true);
+        long fileIndexOptimTab = fileManager.openFile(outputPath + "_RC_ImproveStateTab.txt", true);
         if(isValidState(state))
         {
             double stateEvaluation = evalFunction.evalSoution(state.getRealValue());
@@ -57,6 +58,7 @@ public abstract class RecocidoSimulado extends AbstractOptimizator{
                 isMoreOptimun = true;
                 
                 maximumValue = stateEvaluation;
+                fileManager.writeLine(fileIndexOptimTab,globalParams.get(MAXIMUN_VALUE) + "");
                 fileManager.writeLine(fileIndexOptimLog,globalParams.get(TEMPERATURA) + ", " + globalBinaryRepresentationState + " -> " + state + " : " + globalParams.get(MAXIMUN_VALUE));
 
             }
@@ -69,6 +71,7 @@ public abstract class RecocidoSimulado extends AbstractOptimizator{
                     isMoreOptimun = true;
                     
                     maximumValue = stateEvaluation;
+                    fileManager.writeLine(fileIndexOptimTab,globalParams.get(MAXIMUN_VALUE) + "");
                     fileManager.writeLine(fileIndexOptimLog,globalParams.get(TEMPERATURA) + ", " + globalBinaryRepresentationState + " ---> " + state + " : " + globalParams.get(MAXIMUN_VALUE));
                 }
             }

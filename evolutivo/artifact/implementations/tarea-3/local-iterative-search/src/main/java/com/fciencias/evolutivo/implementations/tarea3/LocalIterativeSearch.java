@@ -19,6 +19,7 @@ public class LocalIterativeSearch
 {
     private Optimizator optimizator;
     private long iterations;
+    private String fileOutput;
     private BinaryRepresentation initialSolution;
     private BinaryRepresentation solution;
     private double solutionEvaluation;
@@ -29,11 +30,12 @@ public class LocalIterativeSearch
 
     
 
-    public LocalIterativeSearch(Optimizator optimizator, long iterations, boolean optimizationDirection) 
+    public LocalIterativeSearch(Optimizator optimizator, long iterations, boolean optimizationDirection, String fileOutput) 
     {
         this.optimizator = optimizator;
         this.iterations = iterations;
         this.optimizationDirection = optimizationDirection;
+        this.fileOutput = fileOutput;
     }
 
     public BinaryRepresentation getSolution() 
@@ -68,13 +70,14 @@ public class LocalIterativeSearch
         solution = optimizator.getOptimumState();
         initialSolution = solution;
         solutionEvaluation = optimizator.getOptimumValuation();
-
+                
         while(!finishCondition(noIterations++))
         {
             BinaryRepresentation disturbSolution = solution.getRandomState(1);
             optimizator.setInitialState(disturbSolution);
             optimizator.resetMetaParams();
-            long deltaTime = optimizator.startMultiThreadOptimization(false, true);
+
+            long deltaTime = optimizator.startMultiThreadOptimization(true, true);
             totalExecutionTime += deltaTime*1.0;
             BinaryRepresentation newOptimumSolution = optimizator.getOptimumState();
             double disturbValue = optimizator.getOptimumValuation();
@@ -121,16 +124,16 @@ public class LocalIterativeSearch
         double maxCost = Double.parseDouble(fileManager.readFileLine(fileIndex, touples + 1));
         Map<String,Object> globalParams = new HashMap<>();
         globalParams.put("TEMP", 50.0);
-        KnapSackSimulatedAnnealingOptimizator recocidoSimulado = new KnapSackSimulatedAnnealingOptimizator(new DiscreteWeightFunction(p), heuristicIterations, touples, touples, 0);
-        // KnapSackHighClimbingOptimizator recocidoSimulado = new KnapSackHighClimbingOptimizator(new DiscreteWeightFunction(p), heuristicIterations, touples, touples, 0);
-        recocidoSimulado.setWeightCalculator(new DiscreteWeightFunction(w));
-        recocidoSimulado.setMaxCost(maxCost);
-        recocidoSimulado.setTotalThreads(totalThreads);
-        recocidoSimulado.setGlobalParams(globalParams);
-        recocidoSimulado.setOutputPath("outputs/tarea3/ILS/" + fileOutput);
-        recocidoSimulado.resetGlobalParams();
+        // KnapSackSimulatedAnnealingOptimizator optimizator = new KnapSackSimulatedAnnealingOptimizator(new DiscreteWeightFunction(p), heuristicIterations, touples, touples, 0);
+        KnapSackHighClimbingOptimizator optimizator = new KnapSackHighClimbingOptimizator(new DiscreteWeightFunction(p), heuristicIterations, touples, touples, 0);
+        optimizator.setWeightCalculator(new DiscreteWeightFunction(w));
+        optimizator.setMaxCost(maxCost);
+        optimizator.setTotalThreads(totalThreads);
+        optimizator.setGlobalParams(globalParams);
+        optimizator.setOutputPath("outputs/tarea3/ILS/" + fileOutput);
+        optimizator.resetGlobalParams();
 
-        LocalIterativeSearch localIterativeSearch = new LocalIterativeSearch(recocidoSimulado, iterations,true);
+        LocalIterativeSearch localIterativeSearch = new LocalIterativeSearch(optimizator, iterations,true,fileOutput);
         localIterativeSearch.runIterativeLocalSearch();
         
         StringBuilder resultLog = new StringBuilder("\nResumen de ejecucion: \n");
