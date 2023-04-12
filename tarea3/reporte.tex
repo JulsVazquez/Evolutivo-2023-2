@@ -1,0 +1,122 @@
+\documentclass{article}
+
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+
+\spanishdecimal{.}
+
+\begin{document}
+\begin{titlepage}
+{\includegraphics[width=1\textwidth]{./img/logoFC.png}\par}
+\vspace{1cm}
+\centering
+{\bfseries\huge Universidad Nacional Autónoma de México \par}
+\vspace{1cm}
+{\scshape\huge Facultad de Ciencias \par}
+\vspace{2cm}
+{\scshape\Huge Tarea 3 - Reporte\par}
+\vspace{2cm}
+{\itshape\LARGE Computo Evólutivo \par}
+\vfill
+{\large Autores: \par}
+{\large Diego García V. \par}
+{\large Julio Vázquez A. \par}
+\vfill
+{\Large \today \par}
+\end{titlepage}
+
+\section*{Problema de la Mochila 0-1}
+
+\subsection*{Implementación de perturbación}
+
+La técnica de perturbación que se utilizo fue alterar un bit de la representación binaria correspondiente a cambiar el estado de un objeto (cargar el objeto en la mochila o no), generando un nuevo estado que puede ser uno válido o no.
+
+No se considera un estado válido aquel que sobrepase el peso permitido en la mochila.
+
+\subsection*{Experimentación}
+
+\subsubsection*{Ejemplares}
+% Especificar el criterio de termino : número de iteraciones
+% Ejemplares utlizados
+% Valores iniciales de la perturbación
+
+En los ejemplares el criterio de término será: \textbf{el número de iteraciones}.
+
+De esta manera nosotros elegimos los siguientes ejemplares:
+
+\begin{itemize}
+	\item \texttt{ejeL1n10.txt}
+	\item \texttt{ejeknapPI\_3\_200\_1000\_14.txt}
+	\item \texttt{ejeknapPI\_11\_20\_1000\_100.txt}
+	\item \texttt{ejeL14n45.txt}
+	\item \texttt{eje1n1000.txt}
+\end{itemize}
+
+En donde los valores iniciales de la perturbación lo inicializamos en 0 y generamos (de manera aleatoria) otra perturbación alterando un bit aleatoriamente.
+
+\subsection*{Análisis de Resultados}
+% Tabla con configuración de parámetros utilizados para cada una de las estrategias.
+
+\begin{table}[h]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+\textbf{File} & \textbf{Hilos} & \textbf{Iteraciones} & \textbf{Evaluación} & \textbf{Tiempo de ejecución} & \textbf{Metaheurística} \\ \hline
+\textbf{eje1n1000.txt} & \textit{10} & \textit{10} & \textit{989471687E9} & \textit{30.65 seg} & \textit{Hill Climbing} \\ \hline
+\textbf{eje1n1000.txt} & \textit{10} & \textit{10} & \textit{9.998471837E9} & \textit{2.5 seg} & \textit{Recocido Simulado} \\ \hline
+\textbf{ejeknapPI\_3\_200\_1000\_14.txt} & \textit{10} & \textit{10} & \textit{16149.0} & \textit{12.8 seg} & \textit{Hill Climbing} \\ \hline
+\textbf{ejeknapPI\_3\_200\_1000\_14.txt} & \textit{10} & \textit{10} & \textit{18449.0} & \textit{2.4 seg} & \textit{Recocido Simulado} \\ \hline
+\textbf{ejeknapPI\_11\_20\_1000\_100.txt} & \textit{10} & \textit{10} & \textit{8242.0} & \textit{1.28 seg} & \textit{Hill Climbing} \\ \hline
+\textbf{ejeknapPI\_11\_20\_1000\_100.txt} & \textit{10} & \textit{10} & \textit{8242.0} & \textit{2.45 seg} & \textit{Recocido Simulado} \\ \hline
+\textbf{ejeL14n45.txt} & \textit{10} & \textit{10} & \textit{2020.0} & \textit{2.85 seg} & \textit{Hill Climbing} \\ \hline
+\textbf{ejeL14n45.txt} & \textit{10} & \textit{10} & \textit{2333.0} & \textit{2.39 seg} & \textit{Recocido Simulado} \\ \hline
+\textbf{ejeL1n10.txt} & \textit{10} & \textit{10} & \textit{294.0} & \textit{0.666 seg} & \textit{Hill Climbing} \\ \hline
+\textbf{ejeL1n10.txt} & \textit{10} & \textit{10} & \textit{294.0} & \textit{0.82 seg} & \textit{Recocido Simulado} \\ \hline
+\end{tabular}
+}
+\end{table}
+
+En el análisis de resultados se tomo en cuenta:
+
+\begin{itemize}
+\item El número de iteraciones.
+\item Número de hilos.
+\item El camino de óptimización.
+\item La metaheurística (RC o HC).
+\item Tiempo de ejecucición.
+\end{itemize}
+
+Recocido Simulado nos devolvió resultados hasta $3,000$ veces mejores que Hill CLimbing.
+
+El comportamiento de las gráficas es muy similar, lo único que notamos de diferencia es la pendiente de escalamiento de cada una de ellas de acuerdo al algortimo utilizado.
+
+Hay conjuntos de datos en que las perturbaciones mejoran considerablemente la solución actual, sin embargo hay otros que notamos que se ha alcanzado un óptimo elevado que las siguientes ya no cumplen con la función de costo.
+
+Todos los resultados junto con sus gráficas los tenemos en el archivo:
+
+\textbf{\texttt{ReporteDeResultados.xlsx}}
+
+El cuál puede ser visualizado con \textit{Google Sheets} o una herramienta que permita la apertura de archivos con extensión \texttt{.xlsx}
+\subsection*{Conclusiones}
+Tanto el Recocido Simulado como el Hill Climbing son algoritmos de búsqueda local, lo que significa que buscan la solución óptima de un problema en un área específica del espacio de soluciones. Sin embargo, su enfoque en la exploración de soluciones es diferente.
+
+El Hill Climbing se centra en buscar soluciones mejores de forma local, es decir, una vez que encuentra una solución que es mejor que su solución actual, se mueve a esa solución y comienza a buscar soluciones aún mejores en su vecindario inmediato. Este proceso se repite hasta que se encuentra una solución que no tiene una solución mejor en su vecindario, lo que indica que se ha alcanzado un óptimo local.
+
+Por otro lado, el Recocido Simulado utiliza un enfoque más exploratorio al buscar soluciones en todo el espacio de soluciones. En lugar de buscar solo soluciones mejores en su vecindario inmediato, el Recocido Simulado también considera soluciones peores y utiliza una probabilidad decreciente para determinar si se debe mover a una solución peor o no. Este proceso permite al algoritmo explorar el espacio de soluciones en busca de un óptimo global.
+
+En resumen, el Hill Climbing busca soluciones óptimas en su vecindario inmediato, mientras que el Recocido Simulado explora soluciones en todo el espacio de soluciones, incluyendo soluciones peores. Esto hace que el Recocido Simulado sea más propenso a encontrar el óptimo global, pero también es más computacionalmente costoso que el Hill Climbing.
+
+
+\newpage
+\section*{Referencias}
+\begin{enumerate}
+	\item Korte, B., \& Vygen, J. (2006). Combinatorial Optimization: Theory and Algorithms. Springer London, Limited.
+	\item P. J. M. van Laarhoven. (1987). Simulated annealing: Theory and applications. D. Reidel.
+\end{enumerate}
+
+\end{document}
