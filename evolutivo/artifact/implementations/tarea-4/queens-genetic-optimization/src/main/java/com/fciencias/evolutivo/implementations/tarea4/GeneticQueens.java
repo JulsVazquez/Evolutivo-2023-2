@@ -46,7 +46,7 @@ public class GeneticQueens
         for(BinaryRepresentation result : resultList)
             fileManager.writeLine(fileIndex,result.printRealValue() + " , " + result.getBinaryString());
 
-        fileManager.writeLine(reportIndex,dimension + "," + iterations + "," + resultList.size() + "," + populationSize);
+        fileManager.writeLine(reportIndex,dimension + "," + iterations + "," + resultList.size() + "," + populationSize + "," + time);
 
         fileManager.closeFile(fileIndex);
         fileManager.closeFile(reportIndex);
