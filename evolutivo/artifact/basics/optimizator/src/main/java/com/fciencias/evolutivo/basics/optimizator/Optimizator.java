@@ -37,4 +37,6 @@ public interface Optimizator {
 
     public void resetMetaParams();
 
+    public Object getResult();
+
 }

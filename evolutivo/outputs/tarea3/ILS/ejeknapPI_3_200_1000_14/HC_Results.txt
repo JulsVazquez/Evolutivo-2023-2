@@ -1,0 +1,9 @@
+
+
+Resumen de ejecucion: 
+
+Estado Inicial: [14,139,153,]
+Resultado Optimo: [14,31,56,67,73,76,85,113,118,119,130,139,142,153,164,175,178,179,188,]
+Costo total: 14348.0
+Valor Optimo: 16248.0
+Tiempo de ejecucion: 2.606s

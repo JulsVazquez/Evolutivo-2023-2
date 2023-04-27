@@ -1,0 +1,9 @@
+
+
+Resumen de ejecucion: 
+
+Estado Inicial: [0,20,41,]
+Resultado Optimo: [0,1,2,4,5,9,10,11,14,15,16,18,19,21,22,23,24,25,26,27,28,29,30,32,34,36,37,38,39,40,41,]
+Costo total: 864.0
+Valor Optimo: 1872.0
+Tiempo de ejecucion: 0.554s

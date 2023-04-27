@@ -1,11 +1,17 @@
 package com.fciencias.evolutivo.binaryRepresentation;
 
+import com.fciencias.evolutivo.basics.NormalRandomDistribution;
 import com.fciencias.evolutivo.basics.RandomDistribution;
 
 public class BinaryMappingState extends AbstractBinaryRepresentation{
 
     private double[] interval;
 
+    public BinaryMappingState(BinaryRepresentation binaryRepresentation)
+    {
+        super(binaryRepresentation);
+        this.interval = ((BinaryMappingState)binaryRepresentation).getInterval();
+    }
     public BinaryMappingState(double[] realValue)
     {
         this.realValue = realValue;
@@ -22,6 +28,18 @@ public class BinaryMappingState extends AbstractBinaryRepresentation{
         this.representationalBits = representationalBits;
         binaryArray = new boolean[realValue.length][representationalBits];
         encodeBinaryArrayToString();
+
+    }
+
+    public BinaryMappingState(double[] realValue, int representationalBits, double[] interval)
+    {
+        super(new NormalRandomDistribution(new double[]{0,1}));
+        this.realValue = realValue;
+        this.interval = interval;
+        this.representationalBits = representationalBits;
+        binaryArray = new boolean[realValue.length][representationalBits];
+        encodeBinaryRealToArray();
+        encodeBinaryArrayToString();
     }
 
     public BinaryMappingState(double[] realValue, int representationalBits, double[] interval, RandomDistribution randomDistribution)
@@ -31,6 +49,7 @@ public class BinaryMappingState extends AbstractBinaryRepresentation{
         this.interval = interval;
         this.representationalBits = representationalBits;
         binaryArray = new boolean[realValue.length][representationalBits];
+        encodeBinaryRealToArray();
         encodeBinaryArrayToString();
     }
 
@@ -40,9 +59,12 @@ public class BinaryMappingState extends AbstractBinaryRepresentation{
         this.representationalBits = representationalBits;
         binaryArray = new boolean[dimension][representationalBits];
         realValue = new double[dimension];
-        double midPoint = interval[1] - interval[0];
+        double midPoint = (interval[1] - interval[0])/2;
         for(int i = 0; i < dimension; i++)
             realValue[i] = midPoint;
+            
+        this.randomDistribution = new NormalRandomDistribution();
+        encodeBinaryRealToArray();
         encodeBinaryArrayToString();
     }
 
@@ -64,6 +86,11 @@ public class BinaryMappingState extends AbstractBinaryRepresentation{
         this.binaryString = binaryString;
         encodeBinaryStringToArray();
         encodeBinaryArrayToReal();
+    }
+
+    public double[] getInterval()
+    {
+        return interval;
     }
 
     @Override
@@ -103,6 +130,22 @@ public class BinaryMappingState extends AbstractBinaryRepresentation{
         for(int i = 0; i < binaryArray.length; i ++)
 
             realValue[i] = (interval[1] - interval[0])*arrayToInteger(binaryArray[i])/Math.pow(2, representationalBits) + interval[0];
+
+    }
+
+    private void encodeBinaryRealToArray()
+    {
+        for(int i = 0; i < realValue.length; i ++)
+        {
+            double tempReal = realValue[i];
+            int bitsCount = 0;
+            while(tempReal > 0)
+            {
+                binaryArray[i][bitsCount] = (tempReal%2 > 0);
+                tempReal = Math.floor(tempReal/2.0);
+                bitsCount++;
+            }
+        }
 
     }
 

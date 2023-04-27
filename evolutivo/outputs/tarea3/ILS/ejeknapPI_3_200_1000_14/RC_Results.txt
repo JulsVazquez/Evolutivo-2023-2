@@ -1,0 +1,169 @@
+
+
+Resumen de ejecucion: 
+
+Estado Inicial: [0,9,81,99,130,]
+Resultado Optimo: [0,8,9,14,31,41,50,64,72,81,87,99,108,109,111,112,130,139,141,152,186,]
+Costo total: 14313.0
+Valor Optimo: 16413.0
+Tiempo de ejecucion: 0.025s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [67,76,148,]
+Resultado Optimo: [1,6,13,25,28,29,40,42,45,59,67,76,84,89,96,98,113,133,134,148,150,164,185,192,]
+Costo total: 14305.0
+Valor Optimo: 16799.0
+Tiempo de ejecucion: 0.051s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [53,54,155,189,]
+Resultado Optimo: [9,36,41,46,53,54,55,56,69,80,83,87,93,113,118,145,150,151,152,155,157,162,164,165,174,178,189,194,]
+Costo total: 14343.0
+Valor Optimo: 17143.0
+Tiempo de ejecucion: 0.099s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [36,104,105,]
+Resultado Optimo: [3,7,13,14,20,22,23,36,52,55,60,61,76,93,104,105,109,112,114,119,123,125,159,172,178,192,]
+Costo total: 14329.0
+Valor Optimo: 16929.0
+Tiempo de ejecucion: 0.093s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [47,53,95,]
+Resultado Optimo: [1,14,17,25,29,47,53,67,69,80,95,100,103,108,113,139,178,179,181,184,]
+Costo total: 14335.0
+Valor Optimo: 16335.0
+Tiempo de ejecucion: 0.087s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [29,38,87,]
+Resultado Optimo: [13,23,29,38,40,45,49,67,76,84,87,89,95,113,119,120,142,157,181,184,188,]
+Costo total: 14346.0
+Valor Optimo: 16446.0
+Tiempo de ejecucion: 0.092s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [10,97,179,]
+Resultado Optimo: [7,10,42,47,49,54,57,59,62,64,89,97,102,105,118,138,140,149,162,167,174,178,179,]
+Costo total: 14346.0
+Valor Optimo: 16646.0
+Tiempo de ejecucion: 0.089s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [142,162,169,]
+Resultado Optimo: [14,25,31,35,37,41,51,53,59,68,81,92,119,132,134,142,146,158,159,162,166,169,193,198,]
+Costo total: 14345.0
+Valor Optimo: 16745.0
+Tiempo de ejecucion: 0.088s
+
+Resumen de ejecucion: 
+
+Estado Inicial: []
+Resultado Optimo: [8,41,51,53,54,56,58,59,60,68,79,81,112,150,158,160,161,163,168,179,183,187,189,195,]
+Costo total: 14345.0
+Valor Optimo: 16745.0
+Tiempo de ejecucion: 0.096s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [32,78,137,]
+Resultado Optimo: [8,11,14,32,38,41,47,60,70,75,77,78,85,112,118,121,124,128,136,137,142,149,168,]
+Costo total: 14337.0
+Valor Optimo: 16637.0
+Tiempo de ejecucion: 0.089s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [31,114,]
+Resultado Optimo: [3,14,31,41,60,68,85,92,93,97,102,111,114,118,137,152,165,166,168,178,179,180,188,]
+Costo total: 14343.0
+Valor Optimo: 16643.0
+Tiempo de ejecucion: 0.088s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [22,61,151,]
+Resultado Optimo: [4,5,22,23,28,56,61,97,109,111,113,126,133,135,138,139,147,151,155,157,162,177,]
+Costo total: 14347.0
+Valor Optimo: 16547.0
+Tiempo de ejecucion: 0.09s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [1,67,]
+Resultado Optimo: [1,6,14,19,27,38,42,45,59,63,67,68,82,125,139,141,144,150,162,168,189,192,]
+Costo total: 14351.0
+Valor Optimo: 16551.0
+Tiempo de ejecucion: 0.093s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [77,97,]
+Resultado Optimo: [0,37,41,46,49,52,56,67,72,73,77,88,91,97,106,109,119,134,136,139,163,171,178,182,188,193,]
+Costo total: 14347.0
+Valor Optimo: 16947.0
+Tiempo de ejecucion: 0.09s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [12,13,142,]
+Resultado Optimo: [12,13,23,29,48,54,62,63,67,75,92,106,108,128,137,139,140,142,149,169,175,176,196,]
+Costo total: 14349.0
+Valor Optimo: 16649.0
+Tiempo de ejecucion: 0.089s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [19,126,192,]
+Resultado Optimo: [19,25,28,47,49,69,75,91,113,121,126,130,135,136,139,157,188,192,197,]
+Costo total: 14348.0
+Valor Optimo: 16248.0
+Tiempo de ejecucion: 0.092s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [31,185,]
+Resultado Optimo: [6,31,47,54,63,79,81,85,89,101,104,108,111,119,121,129,140,142,148,151,155,183,185,]
+Costo total: 14346.0
+Valor Optimo: 16646.0
+Tiempo de ejecucion: 0.096s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [31,190,]
+Resultado Optimo: [24,27,31,40,44,68,70,77,85,88,109,137,138,139,146,156,158,169,175,179,185,186,188,190,]
+Costo total: 14346.0
+Valor Optimo: 16746.0
+Tiempo de ejecucion: 0.089s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [22,130,]
+Resultado Optimo: [18,22,28,45,85,88,103,106,119,130,134,139,148,150,151,168,169,170,172,178,183,187,188,198,]
+Costo total: 14344.0
+Valor Optimo: 16744.0
+Tiempo de ejecucion: 0.092s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [137,147,158,]
+Resultado Optimo: [4,14,27,29,40,45,46,47,51,57,59,67,69,71,85,102,137,138,147,158,171,173,183,186,192,]
+Costo total: 14347.0
+Valor Optimo: 16847.0
+Tiempo de ejecucion: 0.09s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [62,98,185,]
+Resultado Optimo: [14,20,26,49,52,56,62,65,67,80,83,98,105,110,113,125,130,133,148,163,171,173,184,185,187,188,]
+Costo total: 14331.0
+Valor Optimo: 16931.0
+Tiempo de ejecucion: 0.085s
