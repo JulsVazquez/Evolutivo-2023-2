@@ -17,7 +17,8 @@ public class ParamsValidator
     static int threads = 25;
     static String fileIntput= "";
     static String fileOutput= "";
-
+    static int populationSize = 10;
+    static int maxTime = 10;
     
 
     public static int getDimension() {
@@ -47,6 +48,15 @@ public class ParamsValidator
     public static int getThreads() {
         return threads;
     }
+
+    public static int getPopulationSize() {
+        return populationSize;
+    }
+
+    public static int getMaxTime() {
+        return maxTime;
+    }
+    
 
     public static void validate(String[] params)
     {
@@ -87,6 +97,16 @@ public class ParamsValidator
                 threads = Integer.parseInt(params[i+1]);
                 i++;
             }
+            else if(params[i].equals("-p"))
+            {
+                populationSize = Integer.parseInt(params[i+1]);
+                i++;
+            }
+            else if(params[i].equals("-tm"))
+            {
+                maxTime = Integer.parseInt(params[i+1]);
+                i++;
+            }
             else
             {
                 StringBuilder exceptionMessage = new StringBuilder("\nNo se reconoce el comando '")
@@ -99,12 +119,15 @@ public class ParamsValidator
                 .append("\t-ih: Numero de iteraciones de la metaheuristica\n")
                 .append("\t-t: Numero de hilos\n")
                 .append("\t-f: Archivo de entrada\n")
-                .append("\t-fo: Archivo de salida\n");
-                
+                .append("\t-fo: Archivo de salida\n")
+                .append("\t-p: Tamanio de poblacion (Geneticos)\n")
+                .append("\t-tm: Tiempo maximo de ejecucion en segundos(Geneticos)\n");
                 throw new InvalidParameterException(exceptionMessage.toString());
             }
                 
         }
     }
+
+    
 
 }

@@ -1,0 +1,33 @@
+
+
+Resumen de ejecucion: 
+
+Estado Inicial: [10,13,]
+Resultado Optimo: [0,2,4,5,6,8,9,10,14,15,16,17,18,19]
+Costo total: 9433.0
+Valor Optimo: 6817.0
+Tiempo de ejecucion: 0.088s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [2,10,]
+Resultado Optimo: [0,2,3,4,5,6,9,10,12,15,17,18,]
+Costo total: 9484.0
+Valor Optimo: 6291.0
+Tiempo de ejecucion: 0.083s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [6,10,]
+Resultado Optimo: [0,2,3,4,5,6,7,10,12,15,17,18,]
+Costo total: 9662.0
+Valor Optimo: 6348.0
+Tiempo de ejecucion: 0.088s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [5,10,11,]
+Resultado Optimo: [1,2,3,5,6,7,9,10,11,12,13,14,15,17,18,19]
+Costo total: 12154.0
+Valor Optimo: 7146.0
+Tiempo de ejecucion: 0.087s

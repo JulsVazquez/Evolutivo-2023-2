@@ -1,8 +1,7 @@
 package com.fciencias.evolutivo.basics;
 
 /**
- * Hello world!
- *
+ * Interface que se utiliza para obtener variables aleatorias
  */
 public interface RandomDistribution 
 {

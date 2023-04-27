@@ -1,11 +1,12 @@
 package com.fciencias.evolutivo.binaryRepresentation;
 
 import java.security.InvalidParameterException;
+import java.util.Arrays;
 
 import com.fciencias.evolutivo.basics.NormalRandomDistribution;
 import com.fciencias.evolutivo.basics.RandomDistribution;
 
-public abstract class AbstractBinaryRepresentation implements BinaryRepresentation {
+public abstract class AbstractBinaryRepresentation implements BinaryRepresentation{
 
     protected double[] realValue;
     protected int representationalBits;
@@ -13,6 +14,15 @@ public abstract class AbstractBinaryRepresentation implements BinaryRepresentati
     protected boolean[][] binaryArray;
     RandomDistribution randomDistribution;
 
+
+    protected AbstractBinaryRepresentation(BinaryRepresentation binaryRepresentation){
+        
+        this.realValue = Arrays.copyOf(binaryRepresentation.getRealValue(),binaryRepresentation.getRealValue().length);
+        this.representationalBits = binaryRepresentation.getRepresentationalBits();
+        this.binaryString = binaryRepresentation.getBinaryString();
+        this.binaryArray = Arrays.copyOf(binaryRepresentation.getBinaryArray(), binaryRepresentation.getBinaryArray().length);
+        this.randomDistribution = binaryRepresentation.getRandomDistribution();
+    }
 
     protected AbstractBinaryRepresentation(){
         representationalBits = 8;
@@ -124,6 +134,23 @@ public abstract class AbstractBinaryRepresentation implements BinaryRepresentati
             stringRealValue.append(xi).append(" ");
         stringRealValue.append(")");
         return stringRealValue.toString();
+    }
+
+    @Override
+    public boolean equals(Object state)
+    {
+        if(!(state instanceof BinaryRepresentation))
+            return false;
+
+        BinaryRepresentation binaryRepresentation = (BinaryRepresentation)state;
+
+        return binaryString.equals(binaryRepresentation.getBinaryString());
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return binaryString.hashCode();
     }
     
 }

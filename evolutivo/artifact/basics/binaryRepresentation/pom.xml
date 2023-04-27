@@ -34,6 +34,12 @@
       <artifactId>random-distributions</artifactId>
       <version>1.0.0</version>
     </dependency>
+
+    <dependency>
+      <groupId>com.fciencias.evolutivo</groupId>
+      <artifactId>evalFunctions</artifactId>
+      <version>1.0.0</version>
+    </dependency>
   </dependencies>
 
   <build>

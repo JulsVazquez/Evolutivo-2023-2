@@ -15,6 +15,9 @@ public abstract class AbstractRandomDistribution implements RandomDistribution {
         this.params = params;
     }
 
+    protected AbstractRandomDistribution()
+    {}
+
     protected AbstractRandomDistribution(double[] params)
     {
         tableRows = 10000;

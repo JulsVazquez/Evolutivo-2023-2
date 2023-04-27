@@ -1,0 +1,83 @@
+
+Tracking for Discrete Weight Sum
+
+Tracking for Discrete Weight Sum
+
+Tracking for Discrete Weight Sum
+
+Tracking for Discrete Weight Sum
+
+Tracking for Discrete Weight Sum
+
+Tracking for Discrete Weight Sum
+
+Tracking for Discrete Weight Sum
+
+Tracking for Discrete Weight Sum
+
+Tracking for Discrete Weight Sum
+
+Tracking for Discrete Weight Sum
+ht Sum, Thread: 2, Iteration: 0, Vector: (24 254 ), Value: 6.252000152E9
+Function: Discrete Weight Sum, Thread: 2, Iteration: 12, Vector: (24 100 254 ), Value: 8.75300025E9
+Function: Discrete Weight Sum, Thread: 8, Iteration: 0, Vector: (24 100 254 300 791 ), Value: 9.419062916E9
+Function: Discrete Weight Sum, Thread: 8, Iteration: 0, Vector: (24 100 254 303 791 ), Value: 9.419062933E9
+Function: Discrete Weight Sum, Thread: 8, Iteration: 0, Vector: (24 100 254 308 791 ), Value: 9.419062935E9
+Function: Discrete Weight Sum, Thread: 8, Iteration: 0, Vector: (24 100 254 309 791 ), Value: 9.419062937E9
+Function: Discrete Weight Sum, Thread: 8, Iteration: 0, Vector: (24 100 254 318 791 ), Value: 9.419062942E9
+Function: Discrete Weight Sum, Thread: 8, Iteration: 0, Vector: (24 100 254 321 791 ), Value: 9.419062946E9
+Function: Discrete Weight Sum, Thread: 8, Iteration: 0, Vector: (24 100 254 330 791 ), Value: 9.419062947E9
+Function: Discrete Weight Sum, Thread: 8, Iteration: 0, Vector: (24 100 254 362 791 ), Value: 9.419062948E9
+Function: Discrete Weight Sum, Thread: 8, Iteration: 10, Vector: (24 100 254 362 400 791 ), Value: 9.732563027E9
+Function: Discrete Weight Sum, Thread: 8, Iteration: 10, Vector: (24 100 254 362 401 791 ), Value: 9.732563043E9
+Function: Discrete Weight Sum, Thread: 8, Iteration: 10, Vector: (24 100 254 362 457 791 ), Value: 9.732563046E9
+Function: Discrete Weight Sum, Thread: 9, Iteration: 0, Vector: (24 100 254 362 457 500 776 791 ), Value: 9.929875694E9
+Function: Discrete Weight Sum, Thread: 9, Iteration: 0, Vector: (24 100 254 362 457 512 776 791 ), Value: 9.92987571E9
+Function: Discrete Weight Sum, Thread: 9, Iteration: 11, Vector: (24 100 254 362 457 512 700 776 791 ), Value: 9.969938269E9
+Function: Discrete Weight Sum, Thread: 9, Iteration: 11, Vector: (24 100 254 362 457 512 708 776 791 ), Value: 9.969938306E9
+Function: Discrete Weight Sum, Thread: 9, Iteration: 11, Vector: (24 100 254 362 457 512 719 776 791 ), Value: 9.969938309E9
+Function: Discrete Weight Sum, Thread: 7, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 800 911 ), Value: 9.990469645E9
+Function: Discrete Weight Sum, Thread: 7, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 803 911 ), Value: 9.99046966E9
+Function: Discrete Weight Sum, Thread: 7, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 810 911 ), Value: 9.990469663E9
+Function: Discrete Weight Sum, Thread: 7, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 812 911 ), Value: 9.990469672E9
+Function: Discrete Weight Sum, Thread: 7, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 833 911 ), Value: 9.990469675E9
+Function: Discrete Weight Sum, Thread: 7, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 853 911 ), Value: 9.990469676E9
+Function: Discrete Weight Sum, Thread: 7, Iteration: 13, Vector: (24 100 254 362 457 512 719 776 791 853 900 911 ), Value: 9.990469765E9
+Function: Discrete Weight Sum, Thread: 7, Iteration: 13, Vector: (24 100 254 362 457 512 719 776 791 853 904 911 ), Value: 9.990469774E9
+Function: Discrete Weight Sum, Thread: 6, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 853 900 904 911 ), Value: 9.990469863E9
+Function: Discrete Weight Sum, Thread: 6, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 853 904 911 918 ), Value: 9.990469871E9
+Function: Discrete Weight Sum, Thread: 6, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 853 904 911 996 ), Value: 9.990469872E9
+Function: Discrete Weight Sum, Thread: 6, Iteration: 11, Vector: (24 100 254 362 457 512 719 776 791 853 900 904 911 996 ), Value: 9.990469961E9
+Function: Discrete Weight Sum, Thread: 6, Iteration: 11, Vector: (24 100 254 362 457 512 719 776 791 853 904 911 918 996 ), Value: 9.990469969E9
+Function: Discrete Weight Sum, Thread: 6, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 853 900 904 911 918 949 996 ), Value: 9.990470063E9
+Function: Discrete Weight Sum, Thread: 6, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 853 904 911 918 920 949 996 ), Value: 9.990470067E9
+Function: Discrete Weight Sum, Thread: 6, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 853 904 911 918 949 968 996 ), Value: 9.990470068E9
+Function: Discrete Weight Sum, Thread: 6, Iteration: 13, Vector: (24 100 254 362 457 512 719 776 791 853 900 904 911 918 949 968 996 ), Value: 9.990470157E9
+Function: Discrete Weight Sum, Thread: 6, Iteration: 13, Vector: (24 100 254 362 457 512 719 776 791 853 904 911 918 920 949 968 996 ), Value: 9.990470161E9
+Function: Discrete Weight Sum, Thread: 4, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 853 900 904 911 918 920 949 968 996 ), Value: 9.99047025E9
+Function: Discrete Weight Sum, Thread: 4, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 853 904 911 918 920 928 949 968 996 ), Value: 9.990470253E9
+Function: Discrete Weight Sum, Thread: 4, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 853 904 911 918 920 949 968 978 996 ), Value: 9.990470254E9
+Function: Discrete Weight Sum, Thread: 4, Iteration: 14, Vector: (24 100 254 362 457 512 719 776 791 853 900 904 911 918 920 949 968 978 996 ), Value: 9.990470343E9
+Function: Discrete Weight Sum, Thread: 4, Iteration: 14, Vector: (24 100 254 362 457 512 719 776 791 853 904 911 918 920 928 949 968 978 996 ), Value: 9.990470346E9
+Function: Discrete Weight Sum, Thread: 4, Iteration: 14, Vector: (24 100 254 362 457 512 719 776 791 853 904 911 918 920 949 968 978 983 996 ), Value: 9.990470347E9
+Function: Discrete Weight Sum, Thread: 4, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 853 900 904 911 918 920 949 968 978 983 996 ), Value: 9.990470436E9
+Function: Discrete Weight Sum, Thread: 4, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 853 904 911 918 920 928 949 968 978 983 996 ), Value: 9.990470439E9
+Function: Discrete Weight Sum, Thread: 4, Iteration: 10, Vector: (24 100 254 362 457 512 719 776 791 853 900 904 911 918 920 928 949 968 978 983 996 ), Value: 9.990470528E9
+Function: Discrete Weight Sum, Thread: 4, Iteration: 10, Vector: (24 100 254 362 457 512 719 776 791 853 904 911 918 920 928 947 949 968 978 983 996 ), Value: 9.99047053E9
+Function: Discrete Weight Sum, Thread: 4, Iteration: 10, Vector: (24 100 254 362 457 512 719 776 791 853 904 911 918 920 928 949 952 968 978 983 996 ), Value: 9.990470531E9
+Function: Discrete Weight Sum, Thread: 10, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 853 900 904 911 918 920 928 949 952 968 978 983 996 ), Value: 9.99047062E9
+Function: Discrete Weight Sum, Thread: 8, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 853 904 911 918 920 928 947 949 952 968 978 983 996 ), Value: 9.990470622E9
+Function: Discrete Weight Sum, Thread: 8, Iteration: 10, Vector: (24 100 254 362 457 512 719 776 791 853 900 904 911 918 920 928 947 949 952 968 978 983 996 ), Value: 9.990470711E9
+Function: Discrete Weight Sum, Thread: 8, Iteration: 10, Vector: (24 100 254 362 457 512 719 776 791 853 904 911 918 920 928 947 949 952 968 978 983 991 996 ), Value: 9.990470712E9
+Function: Discrete Weight Sum, Thread: 2, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 853 900 904 911 918 920 928 947 949 952 968 978 983 991 996 ), Value: 9.990470801E9
+Function: Discrete Weight Sum, Thread: 2, Iteration: 10, Vector: (24 100 254 362 457 512 719 776 791 853 900 901 904 911 918 920 928 947 949 952 968 978 983 991 996 ), Value: 9.990470873E9
+Function: Discrete Weight Sum, Thread: 2, Iteration: 10, Vector: (24 100 254 362 457 512 719 776 791 853 900 904 911 918 920 927 928 947 949 952 968 978 983 991 996 ), Value: 9.990470882E9
+Function: Discrete Weight Sum, Thread: 2, Iteration: 10, Vector: (24 100 254 362 457 512 719 776 791 853 900 904 911 918 920 928 932 947 949 952 968 978 983 991 996 ), Value: 9.990470889E9
+Function: Discrete Weight Sum, Thread: 2, Iteration: 10, Vector: (24 100 254 362 457 512 719 776 791 853 900 904 911 918 920 928 947 949 952 953 968 978 983 991 996 ), Value: 9.99047089E9
+Function: Discrete Weight Sum, Thread: 5, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 853 900 901 904 911 918 920 928 947 949 952 953 968 978 983 991 996 ), Value: 9.990470962E9
+Function: Discrete Weight Sum, Thread: 5, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 853 900 904 911 918 920 927 928 947 949 952 953 968 978 983 991 996 ), Value: 9.990470971E9
+Function: Discrete Weight Sum, Thread: 5, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 853 900 904 911 918 920 928 932 947 949 952 953 968 978 983 991 996 ), Value: 9.990470978E9
+Function: Discrete Weight Sum, Thread: 5, Iteration: 0, Vector: (24 100 254 362 457 512 719 776 791 853 900 904 911 918 920 928 947 949 952 953 968 974 978 983 991 996 ), Value: 9.990470979E9
+Function: Discrete Weight Sum, Thread: 5, Iteration: 10, Vector: (24 100 254 362 457 512 719 776 791 853 900 901 904 911 918 920 928 947 949 952 953 968 974 978 983 991 996 ), Value: 9.990471051E9
+Function: Discrete Weight Sum, Thread: 5, Iteration: 10, Vector: (24 100 254 362 457 512 719 776 791 853 900 904 911 918 920 927 928 947 949 952 953 968 974 978 983 991 996 ), Value: 9.99047106E9
+Function: Discrete Weight Sum, Thread: 5, Iteration: 10, Vector: (24 100 254 362 457 512 719 776 791 853 900 904 911 918 920 928 932 947 949 952 953 968 974 978 983 991 996 ), Value: 9.990471067E9

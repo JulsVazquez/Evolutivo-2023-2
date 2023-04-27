@@ -1,0 +1,25 @@
+
+
+Resumen de ejecucion: 
+
+Estado Inicial: [1,8,9]
+Resultado Optimo: [1,2,4,7,8,9]
+Costo total: 260.0
+Valor Optimo: 294.0
+Tiempo de ejecucion: 0.134s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [7,8,9]
+Resultado Optimo: [1,2,4,7,8,9]
+Costo total: 260.0
+Valor Optimo: 294.0
+Tiempo de ejecucion: 0.134s
+
+Resumen de ejecucion: 
+
+Estado Inicial: [0,8,9]
+Resultado Optimo: [1,2,4,7,8,9]
+Costo total: 260.0
+Valor Optimo: 294.0
+Tiempo de ejecucion: 0.15s

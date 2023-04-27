@@ -60,6 +60,8 @@ public abstract class AbstractOptimizator implements Optimizator, Runnable
     protected static final String PROGRESS_INDICATOR = "progress indicator";
 
     protected static final String OPTIMUM_OBJECT = "optimum";
+
+    protected static final String EXECUTION_TIME = "exec_time";
     
     protected AbstractOptimizator()
     {
@@ -101,6 +103,11 @@ public abstract class AbstractOptimizator implements Optimizator, Runnable
         
     }
 
+
+    public void setInterval(double[] interval)
+    {
+        this.interval = interval;
+    }
     
     public void setRandomDistribution(RandomDistribution randomDistribution) {
         this.randomDistribution = randomDistribution;
@@ -405,6 +412,11 @@ public abstract class AbstractOptimizator implements Optimizator, Runnable
         else
             globalParams.replace(OPTIMUM_OBJECT, null);
 
+        if(!globalParams.containsKey(EXECUTION_TIME))
+            globalParams.put(EXECUTION_TIME,0L);
+        else
+            globalParams.replace(EXECUTION_TIME, 0L);
+
     }
 
     public void optimizeToMax()
@@ -433,5 +445,11 @@ public abstract class AbstractOptimizator implements Optimizator, Runnable
         return (double)globalParams.get(MAXIMUN_VALUE);
     }
     
+
+    @Override
+    public Object getResult()
+    {
+        return globalBinaryRepresentationState;
+    }
 
 }

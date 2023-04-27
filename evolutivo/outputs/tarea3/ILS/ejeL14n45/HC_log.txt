@@ -1,0 +1,82 @@
+
+Tracking for Discrete Weight Sum
+
+Tracking for Discrete Weight Sum
+
+Tracking for Discrete Weight Sum
+
+Tracking for Discrete Weight Sum
+
+Tracking for Discrete Weight Sum
+
+Tracking for Discrete Weight Sum
+
+Tracking for Discrete Weight Sum
+
+Tracking for Discrete Weight Sum
+
+Tracking for Discrete Weight Sum
+
+Tracking for Discrete Weight Sum
+tion: 0, Vector: (0 6 10 20 41 ), Value: 286.0
+Function: Discrete Weight Sum, Thread: 8, Iteration: 1, Vector: (0 6 18 20 41 ), Value: 301.0
+Function: Discrete Weight Sum, Thread: 7, Iteration: 1, Vector: (0 6 20 39 41 ), Value: 307.0
+Function: Discrete Weight Sum, Thread: 2, Iteration: 1, Vector: (0 1 6 20 41 ), Value: 279.0
+Function: Discrete Weight Sum, Thread: 3, Iteration: 2, Vector: (0 1 6 20 41 ), Value: 279.0
+Function: Discrete Weight Sum, Thread: 5, Iteration: 10, Vector: (0 1 6 10 20 41 ), Value: 356.0
+Function: Discrete Weight Sum, Thread: 5, Iteration: 10, Vector: (0 6 10 16 20 41 ), Value: 359.0
+Function: Discrete Weight Sum, Thread: 5, Iteration: 10, Vector: (0 6 10 18 20 41 ), Value: 378.0
+Function: Discrete Weight Sum, Thread: 2, Iteration: 10, Vector: (0 1 6 18 20 41 ), Value: 371.0
+Function: Discrete Weight Sum, Thread: 5, Iteration: 11, Vector: (0 6 10 20 39 41 ), Value: 384.0
+Function: Discrete Weight Sum, Thread: 8, Iteration: 13, Vector: (0 6 18 20 22 41 ), Value: 385.0
+Function: Discrete Weight Sum, Thread: 8, Iteration: 13, Vector: (0 6 18 20 36 41 ), Value: 389.0
+Function: Discrete Weight Sum, Thread: 8, Iteration: 13, Vector: (0 6 18 20 39 41 ), Value: 399.0
+Function: Discrete Weight Sum, Thread: 7, Iteration: 14, Vector: (0 6 20 39 40 41 ), Value: 403.0
+Function: Discrete Weight Sum, Thread: 4, Iteration: 0, Vector: (0 1 6 9 20 39 40 41 ), Value: 518.0
+Function: Discrete Weight Sum, Thread: 4, Iteration: 0, Vector: (0 6 9 10 20 39 40 41 ), Value: 525.0
+Function: Discrete Weight Sum, Thread: 6, Iteration: 2, Vector: (0 6 9 18 20 39 40 41 ), Value: 540.0
+Function: Discrete Weight Sum, Thread: 4, Iteration: 12, Vector: (0 1 6 9 10 20 39 40 41 ), Value: 595.0
+Function: Discrete Weight Sum, Thread: 4, Iteration: 12, Vector: (0 6 9 10 16 20 39 40 41 ), Value: 598.0
+Function: Discrete Weight Sum, Thread: 4, Iteration: 13, Vector: (0 6 9 10 18 20 39 40 41 ), Value: 617.0
+Function: Discrete Weight Sum, Thread: 6, Iteration: 17, Vector: (0 6 9 18 20 22 39 40 41 ), Value: 624.0
+Function: Discrete Weight Sum, Thread: 6, Iteration: 17, Vector: (0 6 9 18 20 36 39 40 41 ), Value: 628.0
+Function: Discrete Weight Sum, Thread: 3, Iteration: 0, Vector: (0 1 9 18 20 36 39 40 41 ), Value: 694.0
+Function: Discrete Weight Sum, Thread: 1, Iteration: 0, Vector: (0 9 10 18 20 36 39 40 41 ), Value: 701.0
+Function: Discrete Weight Sum, Thread: 3, Iteration: 0, Vector: (0 9 18 20 22 36 39 40 41 ), Value: 708.0
+Function: Discrete Weight Sum, Thread: 1, Iteration: 1, Vector: (0 9 18 20 36 37 39 40 41 ), Value: 711.0
+Function: Discrete Weight Sum, Thread: 1, Iteration: 10, Vector: (0 1 9 18 20 36 37 39 40 41 ), Value: 781.0
+Function: Discrete Weight Sum, Thread: 1, Iteration: 10, Vector: (0 9 10 18 20 36 37 39 40 41 ), Value: 788.0
+Function: Discrete Weight Sum, Thread: 1, Iteration: 10, Vector: (0 9 18 20 22 36 37 39 40 41 ), Value: 795.0
+Function: Discrete Weight Sum, Thread: 1, Iteration: 0, Vector: (0 9 18 20 22 36 37 39 40 41 ), Value: 795.0
+Function: Discrete Weight Sum, Thread: 1, Iteration: 14, Vector: (0 1 9 18 20 22 36 37 39 40 41 ), Value: 865.0
+Function: Discrete Weight Sum, Thread: 1, Iteration: 15, Vector: (0 9 10 18 20 22 36 37 39 40 41 ), Value: 872.0
+Function: Discrete Weight Sum, Thread: 1, Iteration: 15, Vector: (0 9 18 20 22 24 36 37 39 40 41 ), Value: 873.0
+Function: Discrete Weight Sum, Thread: 2, Iteration: 2, Vector: (0 1 9 13 18 20 22 24 36 37 39 40 41 ), Value: 973.0
+Function: Discrete Weight Sum, Thread: 9, Iteration: 5, Vector: (0 9 10 13 18 20 22 24 36 37 39 40 41 ), Value: 980.0
+Function: Discrete Weight Sum, Thread: 2, Iteration: 14, Vector: (0 1 2 9 13 18 20 22 24 36 37 39 40 41 ), Value: 1039.0
+Function: Discrete Weight Sum, Thread: 2, Iteration: 14, Vector: (0 1 9 10 13 18 20 22 24 36 37 39 40 41 ), Value: 1050.0
+Function: Discrete Weight Sum, Thread: 9, Iteration: 17, Vector: (0 9 10 13 16 18 20 22 24 36 37 39 40 41 ), Value: 1053.0
+Function: Discrete Weight Sum, Thread: 1, Iteration: 4, Vector: (0 9 10 13 16 18 20 22 24 36 37 39 40 41 ), Value: 1053.0
+Function: Discrete Weight Sum, Thread: 1, Iteration: 16, Vector: (0 1 9 10 13 16 18 20 22 24 36 37 39 40 41 ), Value: 1123.0
+Function: Discrete Weight Sum, Thread: 1, Iteration: 16, Vector: (0 9 10 13 16 18 20 22 24 25 36 37 39 40 41 ), Value: 1124.0
+Function: Discrete Weight Sum, Thread: 4, Iteration: 1, Vector: (0 1 9 10 13 16 18 20 22 24 36 37 39 40 41 ), Value: 1123.0
+Function: Discrete Weight Sum, Thread: 5, Iteration: 1, Vector: (0 9 10 13 16 18 20 22 24 25 36 37 39 40 41 ), Value: 1124.0
+Function: Discrete Weight Sum, Thread: 4, Iteration: 10, Vector: (0 1 2 9 10 13 16 18 20 22 24 36 37 39 40 41 ), Value: 1189.0
+Function: Discrete Weight Sum, Thread: 4, Iteration: 10, Vector: (0 1 9 10 13 16 18 20 22 24 25 36 37 39 40 41 ), Value: 1194.0
+Function: Discrete Weight Sum, Thread: 1, Iteration: 2, Vector: (0 1 2 9 10 13 16 18 20 22 24 25 36 37 39 40 41 43 ), Value: 1261.0
+Function: Discrete Weight Sum, Thread: 1, Iteration: 11, Vector: (0 1 2 3 9 10 13 16 18 20 22 24 25 36 37 39 40 41 43 ), Value: 1294.0
+Function: Discrete Weight Sum, Thread: 1, Iteration: 12, Vector: (0 1 2 5 9 10 13 16 18 20 22 24 25 36 37 39 40 41 43 ), Value: 1319.0
+Function: Discrete Weight Sum, Thread: 1, Iteration: 12, Vector: (0 1 2 9 10 11 13 16 18 20 22 24 25 36 37 39 40 41 43 ), Value: 1324.0
+Function: Discrete Weight Sum, Thread: 2, Iteration: 0, Vector: (0 1 2 3 9 10 11 13 15 16 18 20 22 24 25 36 37 39 40 41 43 ), Value: 1375.0
+Function: Discrete Weight Sum, Thread: 2, Iteration: 0, Vector: (0 1 2 9 10 11 13 15 16 18 20 22 24 25 26 36 37 39 40 41 43 ), Value: 1402.0
+Function: Discrete Weight Sum, Thread: 3, Iteration: 4, Vector: (0 1 2 5 9 10 11 13 15 16 18 20 22 24 25 36 37 39 40 41 43 ), Value: 1400.0
+Function: Discrete Weight Sum, Thread: 2, Iteration: 10, Vector: (0 1 2 3 9 10 11 13 15 16 18 20 22 24 25 26 36 37 39 40 41 43 ), Value: 1435.0
+Function: Discrete Weight Sum, Thread: 2, Iteration: 10, Vector: (0 1 2 5 9 10 11 13 15 16 18 20 22 24 25 26 36 37 39 40 41 43 ), Value: 1460.0
+Function: Discrete Weight Sum, Thread: 5, Iteration: 4, Vector: (0 1 2 5 9 10 11 13 15 16 18 19 20 22 24 25 26 36 37 39 40 43 ), Value: 1404.0
+Function: Discrete Weight Sum, Thread: 4, Iteration: 4, Vector: (0 1 2 3 5 9 10 11 13 15 16 18 20 22 24 25 26 36 37 39 40 43 ), Value: 1394.0
+Function: Discrete Weight Sum, Thread: 7, Iteration: 5, Vector: (0 1 2 5 9 10 11 13 15 16 18 20 21 22 24 25 26 36 37 39 40 43 ), Value: 1419.0
+Function: Discrete Weight Sum, Thread: 2, Iteration: 5, Vector: (0 1 2 5 9 10 11 13 15 16 18 20 22 24 25 26 36 37 39 40 41 43 ), Value: 1460.0
+Function: Discrete Weight Sum, Thread: 7, Iteration: 14, Vector: (0 1 2 5 9 10 11 13 15 16 18 19 20 21 22 24 25 26 36 37 39 40 43 ), Value: 1462.0
+Function: Discrete Weight Sum, Thread: 7, Iteration: 14, Vector: (0 1 2 5 9 10 11 13 15 16 18 20 21 22 24 25 26 32 36 37 39 40 43 ), Value: 1469.0
+Function: Discrete Weight Sum, Thread: 7, Iteration: 14, Vector: (0 1 2 5 9 10 11 13 15 16 18 20 21 22 24 25 26 34 36 37 39 40 43 ), Value: 1476.0
+Function: Discrete Weight Sum, Thread: 7, Iteration: 14, Vector: (0 1 2 5 9 10 11 13 15 16 18 20 21 22 24 25 26 36 37 39 40 41 43 ), Value: 1518.0
